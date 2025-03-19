@@ -198,7 +198,7 @@ const templates = [
     id: 25,
     title: "Template 25",
     image:
-      "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1739630477/Resume-template/mu1av8fnrfoqndx1yhoy.png",
+    "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742381428/eowzar5omxtu5qrv2iwu.png",
     withPhoto: false,
     columns: 2,
   },
@@ -295,6 +295,22 @@ const templates = [
     title: "Template 37",
     image:
       "https://res.cloudinary.com/dajopw7zz/image/upload/v1739804921/NextStepCv/template37.jpg",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 56,
+    title: "Template 56",
+    image:
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742383291/dtcunglrrxe8anpin987.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 57,
+    title: "Template 57",
+    image:
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742383195/yvbdheehmvanhuddrj8p.png",
     withPhoto: false,
     columns: 2,
   },
