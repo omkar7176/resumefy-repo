@@ -1,14 +1,17 @@
+
+
+
 import React, { forwardRef } from "react";
 import styles from "./Template65.module.css";
 
 const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
   const info = {
     basicInfo: information[sections.basicInfo]?.detail || {},
-    workExperience: information[sections.workExp]?.details || [],
-    education: information[sections.education]?.details || [],
-    achievements: information[sections.achievement]?.points || [],
-    skills: information[sections.skills]?.points || [],
-    projects: information[sections.project]?.details || [],
+    workExperience: Array.isArray(information[sections.workExp]?.details) ? information[sections.workExp].details : [],
+    education: Array.isArray(information[sections.education]?.details) ? information[sections.education].details : [],
+    achievements: Array.isArray(information[sections.achievement]?.points) ? information[sections.achievement].points : [],
+    skills: Array.isArray(information[sections.skills]?.points) ? information[sections.skills].points : [],
+    projects: Array.isArray(information[sections.project]?.details) ? information[sections.project].details : [],
     summary: information[sections.summary]?.detail || "",
   };
 
@@ -59,17 +62,21 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
 
         <section>
           <h2>Work Experience</h2>
-          {info.workExperience.map((exp, index) => (
-            <div key={index} className={styles.experienceItem}>
-              <h3>{exp.title} - {exp.companyName}</h3>
-              <p className={styles.date}>{exp.startDate} - {exp.endDate}</p>
-              <ul>
-                {exp.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {info.workExperience.length > 0 ? (
+            info.workExperience.map((exp, index) => (
+              <div key={index} className={styles.experienceItem}>
+                <h3>{exp.title} - {exp.companyName}</h3>
+                <p className={styles.date}>{exp.startDate} - {exp.endDate}</p>
+                <ul>
+                  {Array.isArray(exp.points) && exp.points.map((point, i) => (
+                    <li key={i}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          ) : (
+            <p>No work experience added yet.</p>
+          )}
         </section>
 
         <section>
@@ -88,7 +95,7 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
                 </p>
               )}
               <ul>
-                {project.points?.map((point, i) => (
+                {Array.isArray(project.points) && project.points.map((point, i) => (
                   <li key={i}>{point}</li>
                 ))}
               </ul>
