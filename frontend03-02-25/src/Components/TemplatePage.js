@@ -198,7 +198,7 @@ const templates = [
     id: 25,
     title: "Template 25",
     image:
-    "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742381428/eowzar5omxtu5qrv2iwu.png",
+    "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1739630477/Resume-template/mu1av8fnrfoqndx1yhoy.png",
     withPhoto: false,
     columns: 2,
   },
