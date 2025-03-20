@@ -1,8 +1,9 @@
 .resumeWrapper {
     display: flex;
-    margin-left: 30%;
+    justify-content: center;
+    margin-left: 15%;
     margin-top: 8%;
-    width: 210mm;
+    width: 220mm;
     height: 287mm;
     font-size: 12px;
     background: #fff;
