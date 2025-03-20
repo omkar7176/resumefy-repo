@@ -147,6 +147,27 @@ ul {
   list-style-position: inside;
 }
 
+/* Languages Section */
+.languagesSection {
+  margin-top: 20px;
+}
+
+.languageList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+.languageList li {
+  background: #28a745;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
 /* Bottom Line */
 .bottomLine {
   border: 0;
