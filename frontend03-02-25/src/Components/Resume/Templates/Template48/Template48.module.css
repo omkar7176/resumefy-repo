@@ -1,7 +1,6 @@
 .resumeWrapper {
     display: flex;
-    justify-content: center;
-    margin-left: 15%;
+    margin: 30px auto;
     margin-top: 8%;
     width: 220mm;
     height: 287mm;
