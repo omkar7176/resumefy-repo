@@ -24,9 +24,6 @@ const Template57 = forwardRef(({ information, sections, activeColor }, ref) => {
           <p>{info.basicInfo.title || "Your Title"}</p>
         </header>
 
-        {/* Top Horizontal Line */}
-       
-
         {/* Two-Column Layout */}
         <div className={styles.content}>
           {/* Left Column */}
@@ -85,9 +82,6 @@ const Template57 = forwardRef(({ information, sections, activeColor }, ref) => {
             </div>
           </div>
 
-          {/* Vertical Divider */}
-          
-
           {/* Right Column */}
           <div className={styles.rightColumn}>
             {/* Summary Section */}
@@ -103,7 +97,7 @@ const Template57 = forwardRef(({ information, sections, activeColor }, ref) => {
                 <div key={index} className={styles.job}>
                   <p><strong>{job.title}</strong> - {job.companyName} ({job.startDate} - {job.endDate})</p>
                   <ul>
-                    {job.points.map((point, i) => (
+                    {(Array.isArray(job.points) ? job.points : []).map((point, i) => (
                       <li key={i}>{point}</li>
                     ))}
                   </ul>
@@ -130,7 +124,7 @@ const Template57 = forwardRef(({ information, sections, activeColor }, ref) => {
                     </p>
                   )}
                   <ul>
-                    {project.points.map((point, i) => (
+                    {(Array.isArray(project.points) ? project.points : []).map((point, i) => (
                       <li key={i}>{point}</li>
                     ))}
                   </ul>
@@ -140,9 +134,9 @@ const Template57 = forwardRef(({ information, sections, activeColor }, ref) => {
           </div>
         </div>
 
-        
       </div>
     </div>
   );
 });
+
 export default Template57;
