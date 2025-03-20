@@ -1,0 +1,137 @@
+.resumeContainer {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+  background-color: #eef1f5;
+}
+
+.resume {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 2.2rem; /* Reduced from 2.8rem */
+  font-weight: bold;
+  color: #222;
+}
+
+.title {
+  font-size: 1.3rem; /* Reduced from 1.5rem */
+  color: #555;
+  margin-top: -5px;
+}
+
+.contactInfo {
+  font-size: 0.9rem; /* Reduced from 1rem */
+  color: #777;
+  margin-top: 10px;
+}
+
+.contactInfo a {
+  text-decoration: none;
+  color: #0073b1;
+  font-weight: 600;
+}
+
+.contactInfo a:hover {
+  text-decoration: underline;
+}
+
+/* Sections */
+section {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1.5px solid #ddd;
+}
+
+h2 {
+  font-size: 1.5rem; /* Reduced from 1.8rem */
+  color: #0073b1;
+  margin-bottom: 10px;
+  border-left: 4px solid #0073b1;
+  padding-left: 10px;
+}
+
+p {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  color: #444;
+  line-height: 1.6; /* Adjusted for readability */
+}
+
+/* Skills */
+.skillList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.skillList li {
+  background: #0073b1;
+  color: white;
+  padding: 6px 12px; /* Slightly reduced padding */
+  border-radius: 18px;
+  font-size: 0.9rem; /* Reduced from 1rem */
+  font-weight: bold;
+}
+
+/* Projects */
+.project h4 {
+  font-size: 1.1rem; /* Reduced from 1.3rem */
+  color: #222;
+  margin-bottom: 6px;
+}
+
+.project a {
+  color: #0073b1;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+/* Experience & Education */
+.experienceItem, .educationItem {
+  margin-bottom: 10px;
+  font-size: 1rem; /* Reduced from 1.1rem */
+  color: #333;
+}
+
+strong {
+  color: #222;
+  font-weight: bold;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  font-size: 1rem; /* Reduced from 1.1rem */
+  color: #444;
+  line-height: 1.5; /* Adjusted for readability */
+}
+
+/* Bottom Line */
+.bottomLine {
+  width: 100%;
+  height: 2.5px; /* Reduced from 3px */
+  background: #0073b1;
+  margin-top: 30px;
+}
