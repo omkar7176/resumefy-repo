@@ -302,7 +302,7 @@ const templates = [
     id: 64,
     title: "Template 64", 
     image:
-      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742371923/Template64.png", 
+      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742471620/64_fihinp.png", 
     withPhoto: false,
     columns: 2,
   },
@@ -310,7 +310,7 @@ const templates = [
     id: 65,
     title: "Template 65",
     image:
-      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742379359/Template66.png",  
+      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742471619/65_qmw6vd.png",  
     withPhoto: false,
     columns: 2,
   },

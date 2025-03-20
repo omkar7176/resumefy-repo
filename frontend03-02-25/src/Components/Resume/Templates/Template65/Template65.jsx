@@ -1,6 +1,5 @@
 
 
-
 import React, { forwardRef } from "react";
 import styles from "./Template65.module.css";
 
@@ -13,6 +12,7 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
     skills: Array.isArray(information[sections.skills]?.points) ? information[sections.skills].points : [],
     projects: Array.isArray(information[sections.project]?.details) ? information[sections.project].details : [],
     summary: information[sections.summary]?.detail || "",
+    languages: Array.isArray(information[sections.languages]?.points) ? information[sections.languages].points : [],
   };
 
   return (
@@ -29,7 +29,7 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
             <p>🔗 <a href={info.basicInfo.linkedin} target="_blank" rel="noreferrer">LinkedIn</a></p>
           )}
           {info.basicInfo.github && (
-            <p>🐙 <a href={info.basicInfo.github} target="_blank" rel="noreferrer">GitHub</a></p>
+            <p>🤖 <a href={info.basicInfo.github} target="_blank" rel="noreferrer">GitHub</a></p>
           )}
         </div>
 
@@ -50,6 +50,15 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
               <p>{edu.college} ({edu.startDate} - {edu.endDate})</p>
             </div>
           ))}
+        </section>
+
+        <section>
+          <h2>Languages</h2>
+          <ul className={styles.languageList}>
+            {info.languages.map((language, index) => (
+              <li key={index}>{language}</li>
+            ))}
+          </ul>
         </section>
       </div>
 
@@ -75,7 +84,7 @@ const Template65 = forwardRef(({ information, sections, activeColor }, ref) => {
               </div>
             ))
           ) : (
-            <p>No work experience added yet.</p>
+            <p></p>
           )}
         </section>
 

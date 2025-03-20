@@ -1,3 +1,5 @@
+
+
 import React, { forwardRef } from "react";
 import styles from "./Template64.module.css";
 
@@ -10,6 +12,7 @@ const Template64 = forwardRef(({ information, sections }, ref) => {
     skills: information[sections.skills]?.points || [],
     projects: information[sections.project]?.details || [],
     summary: information[sections.summary]?.detail || "",
+    languages: information[sections.languages]?.points || [],
   };
 
   return (
@@ -112,6 +115,16 @@ const Template64 = forwardRef(({ information, sections }, ref) => {
               </ul>
             </div>
           ))}
+        </section>
+
+        {/* Languages */}
+        <section>
+          <h2>Languages</h2>
+          <ul>
+            {info.languages.map((language, index) => (
+              <li key={index}>{language}</li>
+            ))}
+          </ul>
         </section>
 
         {/* Bottom Line */}
