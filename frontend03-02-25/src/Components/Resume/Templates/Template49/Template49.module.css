@@ -1,10 +1,11 @@
 .resumeWrapper {
     display: flex;
+    justify-content: center;
     border: 1px solid #ccc;
-    margin-left: 28%;
+    margin-left: 10%;
     margin-top: 8%;
     font-family: 'Arial', sans-serif;
-    width: 250mm;
+    width: 230mm;
     height: 297mm;
     font-size: 12px;
     background-color: #f8f8f8;
