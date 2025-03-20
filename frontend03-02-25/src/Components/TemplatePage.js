@@ -302,7 +302,7 @@ const templates = [
     id: 64,
     title: "Template 64", 
     image:
-      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742471620/64_fihinp.png", 
+      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742473943/64_copy_g3644g.png", 
     withPhoto: false,
     columns: 2,
   },

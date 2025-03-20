@@ -19,25 +19,25 @@
 /* Header */
 .header {
   text-align: center;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
 .header h1 {
-  font-size: 2.8rem;
+  font-size: 2.2rem; /* Reduced from 2.8rem */
   font-weight: bold;
   color: #222;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Reduced from 1.5rem */
   color: #555;
   margin-top: -5px;
 }
 
 .contactInfo {
-  font-size: 1rem;
+  font-size: 0.9rem; /* Reduced from 1rem */
   color: #777;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .contactInfo a {
@@ -52,30 +52,30 @@
 
 /* Sections */
 section {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1.5px solid #ddd;
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* Reduced from 1.8rem */
   color: #0073b1;
-  margin-bottom: 12px;
-  border-left: 5px solid #0073b1;
-  padding-left: 12px;
+  margin-bottom: 10px;
+  border-left: 4px solid #0073b1;
+  padding-left: 10px;
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced from 1.1rem */
   color: #444;
-  line-height: 1.8;
+  line-height: 1.6; /* Adjusted for readability */
 }
 
 /* Skills */
 .skillList {
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 10px;
   list-style: none;
   padding: 0;
 }
@@ -83,17 +83,17 @@ p {
 .skillList li {
   background: #0073b1;
   color: white;
-  padding: 8px 14px;
-  border-radius: 20px;
-  font-size: 1rem;
+  padding: 6px 12px; /* Slightly reduced padding */
+  border-radius: 18px;
+  font-size: 0.9rem; /* Reduced from 1rem */
   font-weight: bold;
 }
 
 /* Projects */
 .project h4 {
-  font-size: 1.3rem;
+  font-size: 1.1rem; /* Reduced from 1.3rem */
   color: #222;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .project a {
@@ -108,8 +108,8 @@ p {
 
 /* Experience & Education */
 .experienceItem, .educationItem {
-  margin-bottom: 12px;
-  font-size: 1.1rem;
+  margin-bottom: 10px;
+  font-size: 1rem; /* Reduced from 1.1rem */
   color: #333;
 }
 
@@ -119,19 +119,19 @@ strong {
 }
 
 ul {
-  padding-left: 22px;
+  padding-left: 20px;
 }
 
 ul li {
-  font-size: 1.1rem;
+  font-size: 1rem; /* Reduced from 1.1rem */
   color: #444;
-  line-height: 1.7;
+  line-height: 1.5; /* Adjusted for readability */
 }
 
 /* Bottom Line */
 .bottomLine {
   width: 100%;
-  height: 3px;
+  height: 2.5px; /* Reduced from 3px */
   background: #0073b1;
-  margin-top: 35px;
+  margin-top: 30px;
 }
