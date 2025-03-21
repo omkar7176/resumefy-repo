@@ -298,6 +298,22 @@ const templates = [
     withPhoto: false,
     columns: 2,
   },
+  {
+    id: 94,
+    title: "Template 94",
+    image:
+      "https://res.cloudinary.com/dih4mkdr2/image/upload/v1742456498/Screenshot_2025-03-20_120233_trcnk9.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 95,
+    title: "Template 95",
+    image:
+      "https://res.cloudinary.com/dih4mkdr2/image/upload/v1742465183/Screenshot_2025-03-20_153348_lizggn.png",
+    withPhoto: false,
+    columns: 2,
+  },
 ];
 
 const colors = [
