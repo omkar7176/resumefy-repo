@@ -298,6 +298,23 @@ const templates = [
     withPhoto: false,
     columns: 2,
   },
+  {
+    id: 78,
+    title: "Template 78",
+    image:
+      "https://res.cloudinary.com/dvgdweqdt/image/upload/v1742738124/elegant-resume-template_tbvuhi.png",
+    withPhoto: true,
+    columns: 2,
+},
+
+{
+  "id": 79,
+  "title": "Template 79",
+  "image": "https://res.cloudinary.com/dvgdweqdt/image/upload/v1742727412/652fd5e35306a15707b52b2b_Build_Faster_Resume_mvvwyj.png",
+  "withPhoto": true,
+  "columns": 2
+}
+
 ];
 
 const colors = [

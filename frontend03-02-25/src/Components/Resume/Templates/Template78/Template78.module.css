@@ -1,0 +1,109 @@
+/* Template78.module.css */
+
+.resumeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+
+.resumeWrapper {
+  width: 900px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+}
+
+/* Left Sidebar */
+.leftPanel {
+  width: 30%;
+  background: #333;
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hexagon {
+  width: 80px;
+  height: 80px;
+  background-color: #555;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.contact p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.contact a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Right Content */
+.rightPanel {
+  width: 70%;
+  padding: 20px;
+}
+
+.nameStrip {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.sectionTitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border-bottom: 2px solid #333;
+  padding-bottom: 5px;
+}
+
+.workItem, .projectItem {
+  margin-bottom: 15px;
+}
+
+.workItem strong, .projectItem strong {
+  font-size: 16px;
+}
+
+.workItem ul, .projectItem ul {
+  padding-left: 20px;
+}
+
+.workItem ul li, .projectItem ul li {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.skills, .achievements, .languages, .other {
+  margin-top: 15px;
+}
+
+.skills p, .achievements ul, .languages ul, .other ul {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.page-break {
+  page-break-before: always;
+}

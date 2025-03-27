@@ -47,6 +47,8 @@ import Template34 from "./Templates/Template34/Template34";
 import Template35 from "./Templates/Template35/Template35";
 import Template36 from "./Templates/Template36/Template36";
 import Template37 from "./Templates/Template37/Template37";
+import Template78 from "./Templates/Template78/Template78";
+import Template79 from "./Templates/Template79/Template79";
 
 const Resume = forwardRef((props, ref) => {
   const { information, sections, activeColor, templateId } = props;
@@ -705,6 +707,8 @@ const Resume = forwardRef((props, ref) => {
             activeColor={activeColor}
           />
         );
+
+
       case 36:
         return (
           <Template36
@@ -723,6 +727,25 @@ const Resume = forwardRef((props, ref) => {
             activeColor={activeColor}
           />
         );
+        case 78:
+          return (
+            <Template78
+              ref={ref}
+              information={information}
+              sections={sections}
+              activeColor={activeColor}
+            />
+          );
+          case 79:
+          return (
+            <Template79
+              ref={ref}
+              information={information}
+              sections={sections}
+              activeColor={activeColor}
+            />
+          );
+
       default:
         return (
           <DefaultTemplate
