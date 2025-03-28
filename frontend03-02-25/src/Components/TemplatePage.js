@@ -302,7 +302,7 @@ const templates = [
     id: 56,
     title: "Template 56",
     image:
-      "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742448318/pyaq3oyvqpw92b6rtedn.png",
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/c_scale,h_990,w_700/pyaq3oyvqpw92b6rtedn",
     withPhoto: false,
     columns: 2,
   },
@@ -310,7 +310,7 @@ const templates = [
     id: 57,
     title: "Template 57",
     image:
-      "https://res.cloudinary.com/dpfr2llzl/image/upload/v1742448325/seqh50jywfskmw84u4bq.png",
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/c_scale,h_990,w_700/seqh50jywfskmw84u4bq",
     withPhoto: false,
     columns: 2,
   },
