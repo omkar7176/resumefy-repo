@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState,useEffect } from "react";
 import axios from "axios";
 import ReactToPrint from "react-to-print";
 import { ArrowDown } from "react-feather";
@@ -25,6 +25,14 @@ function Body() {
   const resumeRef = useRef();
   const location = useLocation();
   const { templateId } = location.state || { templateId: 1 }; // Default to Template 1 if none selected
+
+
+useEffect(() => {
+  console.log("Loaded Template ID:", templateId);
+}, [templateId]);
+
+  
+
 
   const [activeColor, setActiveColor] = useState(colors[0]);
   const [resumeInformation, setResumeInformation] = useState({
