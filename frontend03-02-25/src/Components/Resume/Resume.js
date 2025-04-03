@@ -47,6 +47,25 @@ import Template34 from "./Templates/Template34/Template34";
 import Template35 from "./Templates/Template35/Template35";
 import Template36 from "./Templates/Template36/Template36";
 import Template37 from "./Templates/Template37/Template37";
+import Template38 from "./Templates/Template38/Template38";
+import Template39 from "./Templates/Template39/Template39";
+import Template40 from "./Templates/Template40/Template40";
+
+import Template41 from "./Templates/Template41/Template41";
+import Template42 from "./Templates/Template42/Template42";
+import Template43 from "./Templates/Template43/Template43";
+import Template44 from "./Templates/Template44/Template44";
+import Template45 from "./Templates/Template45/Template45";
+import Template46 from "./Templates/Template46/Template46";
+import Template47 from "./Templates/Template47/Template47";
+import Template48 from "./Templates/Template48/Template48";
+import Template49 from "./Templates/Template49/Template49";
+import Template50 from "./Templates/Template50/Template50";
+import Template51 from "./Templates/Template51/Template51";
+import Template52 from "./Templates/Template52/Template52";
+import Template53 from "./Templates/Template53/Template53";
+import Template54 from "./Templates/Template54/Template54";
+import Template55 from "./Templates/Template55/Template55";
 
 const Resume = forwardRef((props, ref) => {
   const { information, sections, activeColor, templateId } = props;
@@ -402,7 +421,7 @@ const Resume = forwardRef((props, ref) => {
         );
       case 3:
         return (
-          <DefaultTemplate
+          <Template3
             ref={ref}
             information={information}
             sections={sections}
@@ -723,6 +742,169 @@ const Resume = forwardRef((props, ref) => {
             activeColor={activeColor}
           />
         );
+      case 38:
+        return (
+          <Template38
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 39:
+        return (
+          <Template39
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 40:
+        return (
+          <Template40
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 41:
+        return (
+          <Template41
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 42:
+        return (
+          <Template42
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 43:
+        return (
+          <Template43
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 44:
+        return (
+          <Template44
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 45:
+        return (
+          <Template45
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 46:
+        return (
+          <Template46
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 47:
+        return (
+          <Template47
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 48:
+        return (
+          <Template48
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 49:
+        return (
+          <Template49
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 50:
+        return (
+          <Template50
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 51:
+        return (
+          <Template51
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 52:
+        return (
+          <Template52
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 53:
+        return (
+          <Template53
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 54:
+        return (
+          <Template54
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+      case 55:
+        return (
+          <Template55
+            ref={ref}
+            information={information}
+            sections={sections}
+            activeColor={activeColor}
+          />
+        );
+
       default:
         return (
           <DefaultTemplate

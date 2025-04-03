@@ -43,7 +43,7 @@ const Navbar = () => {
           <span>Home</span>
         </Link>
         {/* Tools Dropdown */}
-        <div
+        {/* <div
           className="navbar-item"
           onMouseEnter={() => showDropdown("tools")}
           onMouseLeave={hideDropdown}
@@ -60,11 +60,18 @@ const Navbar = () => {
           </span>
           {isDropdownOpen("tools") && (
             <div className="dropdown-menu">
-              <Link to="/template">Resume Checker</Link>
+              <Link to="/template">
+                <img
+                  src={require("./Logos/resumechecker.png")}
+                  alt="Resume Checker"
+                  className="dropdown-icon-img"
+                />
+                Resume Checker
+              </Link>
               <a href="#cv-maker">CV Maker</a>
             </div>
           )}
-        </div>
+        </div> */}
 
         {/* Resume and CV Dropdown */}
         <div
@@ -73,7 +80,7 @@ const Navbar = () => {
           onMouseLeave={hideDropdown}
         >
           <span>
-            <a href="#resume-cv">Resume and CV</a>
+            <a href="#resume-cv">Resume</a>
             <span
               className={`dropdown-icon ${
                 isDropdownOpen("resume-cv") ? "open" : ""
@@ -84,7 +91,15 @@ const Navbar = () => {
           </span>
           {isDropdownOpen("resume-cv") && (
             <div className="dropdown-menu">
-              <Link to="/template">Resume Templates</Link>
+              <Link to="/template">
+                {" "}
+                <img
+                  src={require("./Logos/logo.png")}
+                  alt="Resume Templates"
+                  className="dropdown-icon-img"
+                />
+                Resume Templates
+              </Link>
               {/* <a href="#cv-templates">CV Templates</a> */}
             </div>
           )}
@@ -108,11 +123,46 @@ const Navbar = () => {
           </span>
           {isDropdownOpen("cover-letter") && (
             <div className="dropdown-menu">
-              {/* <Link to="/cover-letter-templates">Build Cover Letter</Link> */}
-              <Link to="/cover-letter">Cover Letter Format</Link>
-              <Link to="/how-to-cover-letter">How to Write a Cover Letter</Link>
-              <Link to="/cover-letter-help">Cover Letter Help</Link>
-              <Link to="/cover-letter-builder">Create a Cover Letter Now</Link>
+              {/* <Link to="/cover-letter-builder">
+                <img
+                  src={require("./Logos/coverletter.png")}
+                  alt="Build Cover Letter"
+                  className="dropdown-icon-img"
+                />
+                Build Cover Letter
+              </Link> */}
+              <Link to="/cover-letter">
+                <img
+                  src={require("./Logos/format.png")}
+                  alt="Cover Letter Format"
+                  className="dropdown-icon-img"
+                />
+                Cover Letter Format
+              </Link>
+              <Link to="/how-to-cover-letter">
+                <img
+                  src={require("./Logos/help.png")}
+                  alt="How to Write a Cover Letter"
+                  className="dropdown-icon-img"
+                />
+                How to Write a Cover Letter
+              </Link>
+              <Link to="/cover-letter-help">
+                <img
+                  src={require("./Logos/hands.png")}
+                  alt="Cover Letter Help"
+                  className="dropdown-icon-img"
+                />
+                Cover Letter Help
+              </Link>
+              <Link to="/cover-letter-builder">
+                <img
+                  src={require("./Logos/createcoverletter.png")}
+                  alt=" Create a Cover Letter Now"
+                  className="dropdown-icon-img"
+                />
+                Create a Cover Letter Now
+              </Link>
             </div>
           )}
         </div>
@@ -135,9 +185,30 @@ const Navbar = () => {
           </span>
           {isDropdownOpen("about") && (
             <div className="dropdown-menu">
-              <Link to="/">Learn more about Resumefy and our services</Link>
-              <Link to="/payment">Payment</Link>
-              <Link to="/contact">Contact</Link>
+              <Link to="/">
+                <img
+                  src={require("./Logos/services.png")}
+                  alt="services"
+                  className="dropdown-icon-img"
+                />
+                Learn more about Resumefy and our services.
+              </Link>
+              <Link to="/payment">
+                <img
+                  src={require("./Logos/payment.png")}
+                  alt="Payment"
+                  className="dropdown-icon-img"
+                />
+                Payment
+              </Link>
+              <Link to="/contact">
+                <img
+                  src={require("./Logos/contact.png")}
+                  alt="Contact"
+                  className="dropdown-icon-img"
+                />
+                Contact
+              </Link>
             </div>
           )}
         </div>
@@ -161,8 +232,20 @@ const Navbar = () => {
           </span>
           {isDropdownOpen("account") && (
             <div className="dropdown-menu">
-              <Link to="/account">My Profile</Link>
+              <Link to="/account">
+                <img
+                  src={require("./Logos/profile.png")}
+                  alt="Profile"
+                  className="dropdown-icon-img"
+                />
+                My Profile
+              </Link>
               <Link to="/login" onClick={handleLogoutClick}>
+                <img
+                  src={require("./Logos/logout.png")}
+                  alt="Logout"
+                  className="dropdown-icon-img"
+                />
                 Logout
               </Link>
             </div>

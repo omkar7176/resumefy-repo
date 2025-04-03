@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import resumefyLogo from "./resumefy-logo.png";
+// import { FaRegUser } from "react-icons/fa";
+import { FaRegUserCircle } from "react-icons/fa"; // User icon
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -215,7 +217,7 @@ const Navbar = () => {
 
         {/* Account Link */}
         {/* My Account Dropdown with Logout */}
-        <div
+        {/* <div
           className="navbar-item"
           onMouseEnter={() => showDropdown("account")}
           onMouseLeave={hideDropdown}
@@ -250,17 +252,62 @@ const Navbar = () => {
               </Link>
             </div>
           )}
+        </div> */}
+
+        {/* New Account Link */}
+        <div
+          className="navbar-item custom-dropdown"
+          onMouseEnter={() => showDropdown("account")}
+          onMouseLeave={hideDropdown}
+        >
+          <span>
+            <Link
+              to="/login"
+              onClick={handleLoginClick}
+              className="custom-button login-btn"
+            >
+              Login
+            </Link>
+            <span
+              className={`dropdown-icon ${
+                isDropdownOpen("account") ? "open" : ""
+              }`}
+            >
+              ▼
+            </span>
+          </span>
+          {isDropdownOpen("account") && (
+            <div className="dropdown-menu custom-dropdown-menu">
+              <Link
+                to="/signup"
+                onClick={handleSignupClick}
+                className="bold-text"
+              >
+                New User? Sign up
+              </Link>
+              <Link to="/account">My Profile</Link>
+              <Link to="/" onClick={handleLogoutClick}>
+                Logout
+              </Link>
+            </div>
+          )}
+        </div>
+
+        <div className="navbar-item-profile">
+          <Link to="/signup" onClick={handleSignupClick}>
+            <FaRegUserCircle className="user-icon" />
+          </Link>
         </div>
 
         {/* Login and Sign Up buttons */}
-        <div className="navbar-buttons">
+        {/* <div className="navbar-buttons">
           <button className="login-btn" onClick={handleLoginClick}>
             Login
           </button>
           <button className="signup-btn" onClick={handleSignupClick}>
             Sign Up
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );

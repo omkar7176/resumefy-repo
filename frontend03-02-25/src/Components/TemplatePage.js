@@ -298,6 +298,150 @@ const templates = [
     withPhoto: false,
     columns: 2,
   },
+  {
+    id: 38,
+    title: "Template 38",
+    image:
+      "https://res.cloudinary.com/dj2juzuu5/image/upload/v1742451845/johnresume2_qc39j2.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 39,
+    title: "Template 39",
+    image:
+      "https://res.cloudinary.com/dj2juzuu5/image/upload/v1742438865/jennyres1_ujfoey.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 40,
+    title: "Template 40",
+    image:
+      "https://res.cloudinary.com/dhtbgjtfa/image/upload/v1742391394/Screenshot_2025-03-19_185216_nvxwbn.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 41,
+    title: "Template 41",
+    image:
+      "https://res.cloudinary.com/dhtbgjtfa/image/upload/v1742403882/Screenshot_2025-03-19_222838_cefltp.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 42,
+    title: "Template 42",
+    image:
+      "https://res.cloudinary.com/dm2gw7sur/image/upload/v1742269255/Template60_sobjtt.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 43,
+    title: "Template 43",
+    image:
+      "https://res.cloudinary.com/dm2gw7sur/image/upload/v1742269316/Template61_jowlin.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 44,
+    title: "Template 44",
+    image:
+      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742371923/Template64.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 45,
+    title: "Template 45",
+    image:
+      "https://res.cloudinary.com/dnvrl2roi/image/upload/v1742379359/Template66.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 46,
+    title: "Template 46",
+    image:
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/c_scale,h_990,w_700/pyaq3oyvqpw92b6rtedn",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 47,
+    title: "Template 47",
+    image:
+      "https://res.cloudinary.com/dpfr2llzl/image/upload/c_scale,h_990,w_700/seqh50jywfskmw84u4bq",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 48,
+    title: "Template 48",
+    image:
+      "https://res.cloudinary.com/dih4mkdr2/image/upload/v1742456498/Screenshot_2025-03-20_120233_trcnk9.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 49,
+    title: "Template 49",
+    image:
+      "https://res.cloudinary.com/dih4mkdr2/image/upload/v1742465183/Screenshot_2025-03-20_153348_lizggn.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 50,
+    title: "Template 50",
+    image:
+      "https://res.cloudinary.com/dar0bjrax/image/upload/v1742724723/template96_tozmmt.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 51,
+    title: "Template 51",
+    image:
+      "https://res.cloudinary.com/dar0bjrax/image/upload/v1742724826/template97_xorikc.jpg",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 52,
+    title: "Template 52",
+    image:
+      "https://res.cloudinary.com/dvzpgosug/image/upload/v1742535232/Screenshot_2025-03-21_110106_oeif45.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 53,
+    title: "Template 53",
+    image:
+      "https://res.cloudinary.com/dhtbgjtfa/image/upload/v1742392189/Screenshot_2025-03-18_142037_dhdgon.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 54,
+    title: "Template 54",
+    image:
+      "https://res.cloudinary.com/dar0bjrax/image/upload/v1742724723/template96_tozmmt.png",
+    withPhoto: false,
+    columns: 2,
+  },
+  {
+    id: 55,
+    title: "Template 55",
+    image:
+      "https://res.cloudinary.com/dar0bjrax/image/upload/v1742724826/template97_xorikc.jpg",
+    withPhoto: false,
+    columns: 2,
+  },
 ];
 
 const colors = [

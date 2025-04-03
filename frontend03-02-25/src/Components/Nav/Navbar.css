@@ -1,10 +1,11 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"); */
+/* Updated Navbar CSS */
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 30px !important;
+  padding: 15px 55px 15px 20px !important; /* Adjusted padding to keep left side fixed and center right side */
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   position: sticky;
@@ -18,21 +19,18 @@
   align-items: center;
   font-size: 2rem;
   font-weight: 550;
-  color: #1d1d10 !important; /* Logo color */
+  color: #1d1d10 !important;
 }
 
 .logo-image {
-  height: 30px; /* Adjust height as needed */
+  height: 30px;
   width: auto;
-  margin-right: 10px; /* Space between logo and text */
-  object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+  margin-right: 10px;
+  object-fit: contain;
 }
 
 a:link {
   text-decoration: none;
-}
-.about {
-  margin-top: 10px !important;
 }
 
 .menu-toggle {
@@ -55,22 +53,22 @@ a:link {
 
 .navbar-menu a {
   text-decoration: none;
-  color: #233143; /* Link color */
+  color: #233143;
   font-size: 1rem;
   transition: color 0.3s ease;
   margin-top: 10px !important;
 }
 
 .navbar-menu a:hover {
-  color: #0070d6; /* Link hover color */
+  color: #0070d6;
 }
 
-/* Dropdown Menu */
+/* Updated Dropdown Menu (Aligned to the Left) */
 .dropdown-menu {
   display: none;
   position: absolute;
   top: 100%;
-  left: 0;
+  left: -60%; /* Shifted to the left side */
   background-color: #fff;
   min-width: 200px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -81,7 +79,7 @@ a:link {
 
 .dropdown-icon {
   display: inline-block;
-  margin-left: 5px;
+  margin-left: 10px;
   transition: transform 0.3s ease;
   margin-top: 5px !important;
 }
@@ -96,9 +94,11 @@ a:link {
 }
 
 .dropdown-menu a {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 10px 20px;
-  color: #505050; /* Dropdown link color */
+  color: #505050;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: normal;
@@ -107,14 +107,15 @@ a:link {
 }
 
 .dropdown-menu a:hover {
-  background-color: #17a2b8; /* Dropdown hover background */
-  color: #fff; /* Dropdown hover text color */
+  background-color: #17a2b8;
+  color: #fff;
 }
 
 .navbar-buttons {
   display: flex;
   gap: 15px;
 }
+
 .logout-btn {
   background: none;
   border: none;
@@ -146,21 +147,21 @@ a:link {
 }
 
 .navbar-buttons .login-btn {
-  background-color: #f3f4f6; /* Login button background */
+  background-color: #f3f4f6;
   color: #333;
 }
 
 .navbar-buttons .login-btn:hover {
-  background-color: #e2e3e5; /* Login button hover */
+  background-color: #e2e3e5;
 }
 
 .navbar-buttons .signup-btn {
-  background-color: #17a2b8; /* Signup button background */
+  background-color: #17a2b8;
   color: #fff;
 }
 
 .navbar-buttons .signup-btn:hover {
-  background-color: #138496; /* Signup button hover */
+  background-color: #138496;
 }
 
 @media (max-width: 768px) {
@@ -191,14 +192,79 @@ a:link {
   }
 }
 
-.dropdown-menu a {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between image and text */
-  padding: 10px 20px;
-}
 .dropdown-icon-img {
-  width: 20px; /* Adjust as needed */
+  width: 20px;
   height: 20px;
   object-fit: contain;
+}
+/* Custom Dropdown Styles */
+.custom-dropdown {
+  /* background-color: #f3f4f6; */
+  border-radius: 8px;
+  /* padding: 10px 15px; */
+}
+
+.custom-button {
+  background-color: #2874f0;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #a5a5a5;
+}
+
+.custom-dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Bold Styling for "New User? Sign up" */
+.bold-text {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Expanded Dropdown Menu */
+.custom-dropdown-menu {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 230px; /* Increased width to prevent text wrapping */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Change ONLY the hover color of the Login button */
+.login-btn:hover {
+  background-color: #ffffff;
+  font-weight: bold;
+}
+
+.username-text {
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  margin-top: 58px;
+  font-weight: bold;
+}
+
+.user-icon {
+  font-size: 28px;
+  margin-right: 0px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.logged-in-user {
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.custom-dropdown-menu {
+  min-width: 250px; /* Increased width */
 }
