@@ -7,30 +7,38 @@ import "./Login.css";
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [generalError, setGeneralError] = useState("");
+
   const [authUrls, setAuthUrls] = useState({ google: "", facebook: "", apple: "" });
+
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const token = params.get("token");
+    const name = params.get("name");
+
     if (token) {
       localStorage.setItem("authToken", token);
+      if (name) localStorage.setItem("userName", name);
+      window.dispatchEvent(new CustomEvent("userLoggedIn", { detail: name }));
+
       navigate("/dashboard");
     }
   }, [location, navigate]);
 
-  // Fetch OAuth URLs from backend
   useEffect(() => {
     const fetchAuthUrls = async () => {
       try {
         const { data: googleResponse } = await axios.get("http://localhost:5000/api/auth/auth/google");
         const { data: facebookResponse } = await axios.get("http://localhost:5000/api/auth/auth/facebook");
         const { data: appleResponse } = await axios.get("http://localhost:5000/api/auth/auth/apple");
-
+        
         setAuthUrls({
           google: googleResponse.url,
           facebook: facebookResponse.url,
@@ -40,6 +48,7 @@ const Login = () => {
         console.error("Error fetching OAuth URLs", error);
       }
     };
+
     fetchAuthUrls();
   }, []);
 
@@ -68,11 +77,19 @@ const Login = () => {
     if (!isValid) return;
 
     try {
-      const response = await axios.post("http://localhost:5000/api/auth/login", { email, password }, {
-        headers: { "Content-Type": "application/json" },
-      });
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/login",
+        { email, password },
+        { headers: { "Content-Type": "application/json" } }
+      );
 
-      localStorage.setItem("authToken", response.data.token);
+      const { token, name } = response.data;
+
+      localStorage.setItem("authToken", token);
+      if (name) {
+        localStorage.setItem("userName", name);
+        window.dispatchEvent(new CustomEvent("userLoggedIn", { detail: name })); //This line updates the UI
+      }
       Swal.fire({
         icon: "success",
         title: "Login Successful",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import resumefyLogo from "./resumefy-logo.png";
 // import { FaRegUser } from "react-icons/fa";
@@ -9,6 +9,27 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [dropdownVisible, setDropdownVisible] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    // Get username from localStorage
+    const storedName = localStorage.getItem("userName");
+
+    if (storedName) {
+      setUserName(storedName);
+    }
+        // Listen for login event to update name without refresh
+        const handleLogin = (event) => {
+          setUserName(event.detail);
+        };
+    
+        window.addEventListener("userLoggedIn", handleLogin);
+    
+        return () => {
+          window.removeEventListener("userLoggedIn", handleLogin);
+        };
+  }, []);
+
 
   const handleLoginClick = () => navigate("/login");
   const handleSignupClick = () => navigate("/signup");
@@ -23,6 +44,8 @@ const Navbar = () => {
     // Clear the token from localStorage
     localStorage.removeItem("authToken");
     console.log("Logged out");
+    localStorage.removeItem("userName");
+    setUserName(""); // Clear the local state
 
     // Navigate to the home page or login page
     navigate("/login");
@@ -296,8 +319,10 @@ const Navbar = () => {
         <div className="navbar-item-profile">
           <Link to="/signup" onClick={handleSignupClick}>
             <FaRegUserCircle className="user-icon" />
+            {userName && <span className="user-name">{userName}</span>}
           </Link>
         </div>
+
 
         {/* Login and Sign Up buttons */}
         {/* <div className="navbar-buttons">
