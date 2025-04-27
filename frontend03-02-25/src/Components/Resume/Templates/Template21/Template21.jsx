@@ -12,7 +12,11 @@ const Template21 = forwardRef(({ information, sections, activeColor }, ref) => {
     skills: information[sections.skills]?.points || [],
     languages: information[sections.languages]?.points || [],
     summary: information[sections.summary]?.detail || "",
-    other: information[sections.other]?.points || [],
+    other:
+  information[sections.other]?.points ||
+  (information[sections.other]?.detail
+    ? [information[sections.other].detail]
+    : []),
   };
 
 /*
