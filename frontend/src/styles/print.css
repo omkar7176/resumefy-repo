@@ -1,0 +1,13 @@
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  .resume-container {
+    page-break-inside: avoid;
+    margin: 1cm;
+  }
+  .section {
+    page-break-inside: avoid;
+  }
+}

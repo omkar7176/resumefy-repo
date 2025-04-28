@@ -1,0 +1,30 @@
+.noPageBreak {
+  page-break-inside: avoid;
+  page-break-before: auto;
+  page-break-after: auto;
+  margin-bottom: 10px;
+}
+
+@media print {
+  .container {
+    width: 210mm; /* A4 width */
+    height: auto; /* Allow dynamic height */
+    margin: 0 auto;
+    padding: 10mm;
+    font-size: 10pt; /* Adjust font size for compact layout */
+    line-height: 1.4;
+  }
+
+  h3, h4 {
+    page-break-after: avoid;
+  }
+
+  ul, li {
+    page-break-inside: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+}
