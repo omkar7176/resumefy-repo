@@ -1,0 +1,224 @@
+.resumeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.resume {
+  width: 210mm;
+  height: auto; /* Allow height to adjust dynamically */
+  background: white;
+  padding: 10px; /* Reduce padding */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contactInfo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.contactInfo a {
+  text-decoration: none;
+  color: #0073b1;
+  font-weight: bold;
+}
+
+.contactInfo span {
+  white-space: nowrap;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 10px; /* Reduce gap below header */
+}
+
+.header h1 {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.line {
+  width: 100%;
+  margin: 5px auto;
+  border: 1px solid black;
+}
+
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px; /* Reduce gap between sections */
+}
+
+.leftColumn {
+  width: 50%;
+  padding-right: 20px;
+}
+
+.rightColumn {
+  width: 50%;
+  padding-left: 20px;
+}
+
+.rightColumn section p {
+  text-align: justify;
+}
+
+.leftColumn section p {
+  text-align: left;
+  margin-left: 20px;
+}
+
+section {
+  margin-top: 5px;;
+  margin-bottom: 5px; /* Reduce section spacing */
+}
+
+section h2 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  border-bottom: 2px solid black;
+  padding-bottom: 3px;
+}
+
+ul {
+  padding-left: 5px;
+}
+
+.skillList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 5px; /* Reduce gap between skill items */
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+.skillList li {
+  background: #2b3235;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.skillsSection {
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: -20px;
+}
+.summarySection{
+  margin-top: -20px;
+}
+
+.bottomLine {
+  width: 100%;
+  margin: 20px auto;
+  border: 1px solid black;
+}
+
+.project {
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #0073b1;
+  border-radius: 5px;
+}
+
+.project h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.project p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.project a {
+  text-decoration: none;
+  color: #0073b1;
+  font-weight: bold;
+}
+
+.project a:hover {
+  text-decoration: underline;
+}
+
+.other {
+  padding: 10px;
+  margin-top: 10px;
+  border-left: 4px solid #ff9800;
+  border-radius: 5px;
+}
+
+.other h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.other p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+@media print {
+  .resumeContainer {
+    display: block;
+    width: 210mm; /* A4 width */
+    height: auto; /* Allow dynamic height */
+    margin: 0 auto;
+    padding: 10mm;
+    font-size: 10pt; /* Adjust font size for compact layout */
+    line-height: 1.4;
+    overflow: visible; /* Ensure content is visible */
+  }
+
+  .resume {
+    display: block;
+    width: 100%;
+    height: auto; /* Allow dynamic height */
+    box-shadow: none;
+    padding: 5mm; /* Reduce padding for print layout */
+    page-break-inside: avoid;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 5px; /* Further reduce spacing for print */
+  }
+
+  h2, h3, h4 {
+    page-break-after: avoid;
+    margin-bottom: 5px;
+  }
+
+  ul, li {
+    page-break-inside: avoid;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contactInfo {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+
+  .project, .other {
+    page-break-inside: avoid;
+    margin-bottom: 10px;
+  }
+}
