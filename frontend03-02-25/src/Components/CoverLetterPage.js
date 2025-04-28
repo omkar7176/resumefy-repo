@@ -32,7 +32,7 @@ const templates = [
     image:
       "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1740981858/Cv-template/b86p6yljau6nkzjddnve.jpg",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
   {
     id: 5,
@@ -40,15 +40,15 @@ const templates = [
     image:
       "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1740981858/Cv-template/phw3grqj8sqgeeafsotu.jpg",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
   {
     id: 6,
     title: "Template 6",
     image:
-      "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1740981858/Cv-template/vun98kbkrq3vxx1ldnge.jpg",
+      "https://res.cloudinary.com/dm2gw7sur/image/upload/v1745500482/Screenshot_902_t8saol.png",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
   {
     id: 7,
@@ -56,7 +56,7 @@ const templates = [
     image:
       "https://res.cloudinary.com/dtyxaxtfv/image/upload/v1740982885/CoverLetterTemplates/tkgthhzujo5mfcp4zka5.jpg",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
   {
     id: 8,
@@ -72,7 +72,7 @@ const templates = [
     image:
       "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1741084288/Cv-template/yhvtenv3q6vpdpommgsa.jpg",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
   {
     id: 10,
@@ -80,7 +80,7 @@ const templates = [
     image:
       "https://res.cloudinary.com/dcbtvmkmb/image/upload/v1741084288/Cv-template/w1httn1q9wkazrljwfyw.jpg",
     withPhoto: false,
-    columns: 2,
+    columns: 1,
   },
 ];
 
@@ -127,7 +127,7 @@ const CoverLetterPage = () => {
 
   const handleChooseTemplate = () => {
     if (selectedTemplate) {
-      navigate("/resume", { state: { templateId: selectedTemplate } });
+      navigate("/cv", { state: { templateId: selectedTemplate } });
     } else {
       alert("Please select a template first.");
     }

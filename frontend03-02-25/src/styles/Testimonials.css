@@ -1,4 +1,9 @@
 /* Existing Testimonials Section Styling */
+html, body {
+  overflow-x: hidden;
+}
+
+
 .testimonials {
   background-color: #f9fafc;
   padding: 60px 20px;
@@ -102,7 +107,7 @@
   animation: fade-in 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) forwards;
   margin: 0 20px;
   display: inline-block;
-}
+} 
 
 /* Keyframe for Left-Side Moving Animation */
 @keyframes slidein {

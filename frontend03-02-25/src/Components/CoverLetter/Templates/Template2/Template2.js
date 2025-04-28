@@ -4,8 +4,8 @@ import styles from "./Template2.module.css";
 const Template2 = forwardRef(({ information, sections }, ref) => {
   const info = {
     basicInfo: information[sections.basicInfo]?.detail || {},
-    coverLetter: information.coverLetter || "",
-    recipient: information.recipient || {}, // Recipient details
+    coverLetter: information[sections.coverLetter] || { points: [] },
+    recipient: information[sections.recipient]?.detail || {},
   };
 
   return (
@@ -18,7 +18,7 @@ const Template2 = forwardRef(({ information, sections }, ref) => {
             {info.basicInfo.title || "Your Position"}
           </p>
 
-          <div className={styles.contactInfo}>
+          <div className={styles.contactInfo} style={{color:"red"}}>
             {info.basicInfo.email && <p>✉️ {info.basicInfo.email}</p>}
             {info.basicInfo.phone && <p>📞 {info.basicInfo.phone}</p>}
             {info.basicInfo.linkedin && (
@@ -38,20 +38,26 @@ const Template2 = forwardRef(({ information, sections }, ref) => {
 
         {/* Main Content */}
         <div className={styles.mainContent}>
-          {/* Recipient Details */}
-          <section className={styles.recipientSection}>
-            <p>
-              <strong>{info.recipient.name || "Hiring Manager"}</strong>
-            </p>
-            <p>{info.recipient.company || "Company Name"}</p>
-            <p>{info.recipient.address || "Company Address"}</p>
-            <p>{info.recipient.date || new Date().toDateString()}</p>
-          </section>
+          <div className={styles.content}>
+            {/* Left Column: Recipient Details */}
+            <div className={styles.recipientSection}>
+              <p><strong>{info.recipient.hrname || "Hiring Manager"}</strong></p>
+              <p>{info.recipient.company || "Company Name"}</p>
+              <p>{info.recipient.address || "Company Address"}</p>
+              <p>{info.recipient.date || new Date().toDateString()}</p>
+            </div>
 
-          {/* Cover Letter Content */}
-          <section className={styles.letterContent}>
-            <p>{info.coverLetter || "Your cover letter content goes here."}</p>
-          </section>
+            {/* Right Column: Cover Letter Content */}
+            <div className={styles.letterContent}>
+              {info.coverLetter?.points?.length > 0 ? (
+                info.coverLetter.points.map((point, index) => (
+                  <p key={index}>{point}</p>
+                ))
+              ) : (
+                <p>Your cover letter content goes here.</p>
+              )}
+            </div>
+          </div>
 
           {/* Footer */}
           <footer className={styles.footer}>

@@ -1,4 +1,4 @@
-.container {
+/* .container {
     --color: #239ce2;
     min-width: 700px;
     max-width: 850px;
@@ -11,7 +11,22 @@
     flex-direction: column;
     gap: 30px;
     padding: 30px;
+  } */
+
+
+  .container {
+    --color: #239ce2;
+    width: 210mm;
+    min-height: 297mm;
+    margin: auto;
+    padding: 20mm;
+    box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    background: white;
   }
+  
   
   .header {
     display: flex;
@@ -148,3 +163,29 @@
   .hidden {
     display: none;
   }
+
+
+
+  /* added by kalyani */
+  /* Resume.module.css */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .yourMainResumeContainer {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .section {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}

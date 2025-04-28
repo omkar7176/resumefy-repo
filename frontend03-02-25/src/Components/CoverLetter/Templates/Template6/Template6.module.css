@@ -1,140 +1,129 @@
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  /* padding: 40px; */
-  /* padding: 20px 20px 0px 20px; */
-  font-family: "Arial", sans-serif;
-  color: #333;
-  background-color: white;
+  max-width: 850px;
+  margin: 40px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f1f1f;
+  background-color: #ffffff;
   position: relative;
-  line-height: 1.5;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.534);
+  line-height: 1.7;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-left: 6px solid #6b5b95;
+  overflow: hidden;
 }
 
+/* Header Section */
 .headerSection {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 40px;
-  border-bottom: 1px solid #f0f0f0;
-  padding: 20px 15px 20px 0;
-  background-color: #b9d9eb;
-  padding-bottom: 20px;
-  padding-top: 20px;
-  padding-left: 20px;
+  background-color: #f4f2fa;
+  padding: 25px 30px;
+  border-bottom: 2px solid #6b5b95;
 }
 
 .nameTitle {
   margin-bottom: 15px;
-  text-align: left;
 }
 
 .name {
-  font-size: 32px;
+  font-size: 34px;
   margin: 0;
-  font-weight: 600;
-  color: #333;
-  text-align: left;
+  font-weight: 700;
+  color: #2e2e3a;
 }
 
 .title {
   font-size: 18px;
-  margin: 5px 0 0 0;
-  font-weight: 400;
-  color: #3fbbc0;
-  text-align: left;
+  margin: 5px 0 0;
+  font-weight: 500;
+  color: #6b5b95;
 }
 
 .contactInfo {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px 30px;
+  gap: 12px 30px;
+  margin-top: 15px;
 }
 
 .contactItem {
   display: flex;
-  justify-content: flex-start;
   align-items: center;
   gap: 8px;
+  font-size: 14px;
+  color: #3c3c3c;
   width: calc(50% - 15px);
 }
 
 .icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 24px;
-  height: 24px;
-  color: #3fbbc0;
+  font-size: 16px;
+  color: #6b5b95;
   font-weight: bold;
-  order: -1;
 }
 
+/* Address */
 .addressSection {
-  margin-bottom: 30px;
-  text-align: center;
-  /* padding-top: 20px; */
-  padding-right: 25px;
-  padding-left: 25px;
+  background-color: #fdfcff;
+  padding: 25px 30px 10px;
+  text-align: left;
 }
 
 .addressTo {
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2e2e3a;
 }
 
 .addressSection p {
-  text-align: left;
   margin: 0;
+  color: #4e4e4e;
   line-height: 1.6;
 }
 
+/* Letter Content */
 .letterContent {
-  margin-bottom: 30px;
-  /* padding-top: 20px; */
-  padding-right: 25px;
-  padding-left: 25px;
+  padding: 30px;
+  background-color: #fff;
 }
 
 .letterContent p {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   text-align: justify;
+  color: #333;
 }
 
+/* Achievements */
 .achievementsList {
   margin: 20px 0;
-  padding-left: 20px;
+  padding-left: 25px;
 }
 
 .achievementsList li {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
   position: relative;
-  padding-left: 10px;
+  padding-left: 12px;
   text-align: justify;
+  color: #333;
 }
 
 .achievementsList li::before {
-  content: "◦";
+  content: "✦";
   position: absolute;
   left: -20px;
-  color: #3fbbc0;
-  font-weight: bold;
-  font-size: 18px;
+  color: #6b5b95;
+  font-size: 16px;
 }
 
+/* Signature */
 .signature {
-  margin-top: 40px;
+  margin-top: 35px;
+  padding-left: 30px;
 }
 
 .signature p {
-  margin: 5px 0;
+  margin: 4px 0;
+  color: #2e2e3a;
 }
 
-.logo {
-  width: 180px;
-  height: auto;
-}
-
-/* Background pattern like in the image */
+/* Background Pattern */
 .container::before {
   content: "";
   position: absolute;
@@ -142,13 +131,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(
-    circle,
-    rgba(63, 187, 192, 0.05) 2px,
-    transparent 2px
-  );
-  background-size: 30px 30px;
+  background: linear-gradient(135deg, rgba(107, 91, 149, 0.05) 25%, transparent 25%),
+              linear-gradient(225deg, rgba(107, 91, 149, 0.05) 25%, transparent 25%);
+  background-size: 40px 40px;
   z-index: -1;
   pointer-events: none;
-  border-radius: 12px;
 }

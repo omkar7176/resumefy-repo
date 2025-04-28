@@ -1,26 +1,25 @@
+
 import React, { useRef, useState } from "react";
 import axios from "axios";
 import ReactToPrint from "react-to-print";
 import { ArrowDown } from "react-feather";
 import { useLocation } from "react-router-dom";
 import Editor from "../Editor/Editor";
-import Resume from "../Resume/Resume";
+
 import Header from "../Header/Header";
-import styles from "./BodyCv.module.css";
+import styles from "./Body.module.css";
 import { url } from "../../api/apiendpoint";
+import CoverLetter from "../CoverLetter/CoverLetter";
+import EditorCv from "../Editor/EditorCv";
 
 function BodyCv() {
   const colors = ["#239ce2", "#48bb78", "#082a4d", "#a0aec0", "#ed8936"];
   const sections = {
     basicInfo: "Basic Info",
-    workExp: "Work Experience",
-    project: "Projects",
-    education: "Education",
-    achievement: "Achievements",
-    summary: "Summary",
-    skills: "Skills", // Add this line
-    languages: "Languages", // Add this line
-    other: "Other",
+    coverLetter: "coverLetter",
+   
+    recipient: "recipient",
+   
   };
   const resumeRef = useRef();
   const location = useLocation();
@@ -33,66 +32,29 @@ function BodyCv() {
       sectionTitle: sections.basicInfo,
       detail: {},
     },
-    [sections.workExp]: {
-      id: sections.workExp,
-      sectionTitle: sections.workExp,
-      details: [],
-    },
-    [sections.project]: {
-      id: sections.project,
-      sectionTitle: sections.project,
-      details: [],
-    },
-    [sections.education]: {
-      id: sections.education,
-      sectionTitle: sections.education,
-      details: [],
-    },
-    [sections.achievement]: {
-      id: sections.achievement,
-      sectionTitle: sections.achievement,
+
+    [sections.recipient]: {
+        id: sections.recipient,
+        sectionTitle: sections.recipient,
+        detail: {},
+      },
+
+   
+    [sections.coverLetter]: {
+      id: sections.coverLetter,
+      sectionTitle: sections.coverLetter,
       points: [],
-    },
-    [sections.summary]: {
-      id: sections.summary,
-      sectionTitle: sections.summary,
-      summary: "",
-    },
-    [sections.skills]: {
-      id: sections.skills,
-      sectionTitle: sections.skills,
-      points: [], // Holds the list of skills
-    },
-    [sections.languages]: {
-      id: sections.languages,
-      sectionTitle: sections.languages,
-      points: [], // Holds the list of languages
-    },
-    [sections.other]: {
-      id: sections.other,
-      sectionTitle: sections.other,
-      other: "",
-    },
+    }
+ 
   });
 
   // Function to handle the resume data submission to the API
   const saveResumeToServer = async () => {
     const updatedResumeInfo = {
       ...resumeInformation,
-      [sections.workExp]: {
-        ...resumeInformation[sections.workExp],
-        details: JSON.stringify(resumeInformation[sections.workExp].details),
-      },
-      [sections.project]: {
-        ...resumeInformation[sections.project],
-        details: JSON.stringify(resumeInformation[sections.project].details),
-      },
-      [sections.education]: {
-        ...resumeInformation[sections.education],
-        details: JSON.stringify(resumeInformation[sections.education].details),
-      },
+ 
     };
-    //  await setResumeInformation(updatedResumeInfo);
+    
     console.log("Sending resume information:", updatedResumeInfo); // Log the data before sending
 
     try {
@@ -140,21 +102,26 @@ function BodyCv() {
         </button>
       </div>
       <div className={styles.main}>
-        <Editor
+        <EditorCv
           sections={sections}
           information={resumeInformation}
           setInformation={setResumeInformation}
         />
-        <Resume
-          ref={resumeRef}
-          sections={sections}
-          information={resumeInformation}
-          activeColor={activeColor}
-          templateId={templateId} // Pass templateId here
+       
+        <CoverLetter
+        ref={resumeRef}
+        sections={sections}
+        information={resumeInformation}
+        activeColor={activeColor}
+        templateId={templateId}
+        className="yourMainResumeContainer"
+        
         />
+        {/* end */}
       </div>
     </div>
   );
 }
 
 export default BodyCv;
+

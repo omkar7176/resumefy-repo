@@ -5,7 +5,7 @@ const Template8 = forwardRef(({ information, sections }, ref) => {
   const info = {
     basicInfo: information[sections.basicInfo]?.detail || {},
     coverLetter: information.coverLetter || "",
-    recipient: information.recipient || {},
+    recipient: information[sections.recipient]?.detail || {},
   };
 
   return (
@@ -45,7 +45,7 @@ const Template8 = forwardRef(({ information, sections }, ref) => {
           {/* Left Column: Recipient Details */}
           <div className={styles.leftColumn}>
             <p>
-              <strong>{info.recipient.name || "Doris Johnson"}</strong>
+              <strong>{info.recipient.hrname || "Doris Johnson"}</strong>
             </p>
             <p>{info.recipient.company || "Optimal Workplace Inc."}</p>
             <p>
@@ -53,32 +53,18 @@ const Template8 = forwardRef(({ information, sections }, ref) => {
             </p>
             <p>{info.recipient.date || new Date().toDateString()}</p>
           </div>
-
-          {/* Right Column: Cover Letter */}
-          <div className={styles.rightColumn}>
-            <p>
-              {info.coverLetter ||
-                "As a highly skilled project manager with 11 years of experience, I am writing to express my interest in the Project Manager position at your company. My experience aligns well with the role, as I have led multiple large-scale projects requiring strategic planning, execution, and leadership. I am confident that my expertise in project coordination and team management make me a strong candidate for this role."}
-            </p>
-            <p>
-              Throughout my career, I have successfully overseen projects from
-              inception to completion, ensuring they are delivered on time and
-              within budget. My ability to effectively communicate with
-              cross-functional teams, manage stakeholder expectations, and
-              implement innovative solutions has contributed to my success in
-              driving efficiency and achieving company goals.
-            </p>
-            <p>
-              In my previous role at XYZ Corp, I spearheaded a project that
-              resulted in a 30% increase in operational efficiency. By
-              optimizing workflows, streamlining communication between
-              departments, and leveraging agile methodologies, I was able to
-              enhance productivity while maintaining quality standards. I take
-              pride in my problem-solving skills and my ability to motivate
-              teams to perform at their best.
-            </p>
           </div>
-        </div>
+          {/* Cover Letter Content */}
+                 <section className={styles.letterContent}>
+                   {info.coverLetter?.points?.length > 0 ? (
+                     info.coverLetter.points.map((point, index) => (
+                       <p key={index}>{point}</p>
+                     ))
+                   ) : (
+                     <p>Your cover letter content goes here.</p>
+                   )}
+                 </section>
+     
 
         {/* Footer */}
         <div className={styles.footer}>

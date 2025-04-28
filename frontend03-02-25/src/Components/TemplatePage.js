@@ -487,6 +487,8 @@ const TemplatePage = () => {
 
   const handleChooseTemplate = () => {
     if (selectedTemplate) {
+     
+      
       navigate("/resume", { state: { templateId: selectedTemplate } });
     } else {
       alert("Please select a template first.");

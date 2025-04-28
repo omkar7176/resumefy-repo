@@ -5,8 +5,8 @@ import backgroundImage from "./background.jpg";
 const Template1 = forwardRef(({ information, sections }, ref) => {
   const info = {
     basicInfo: information[sections.basicInfo]?.detail || {},
-    coverLetter: information.coverLetter || "",
-    recipient: information.recipient || {},
+    coverLetter: information[sections.coverLetter] || { points: [] },
+    recipient: information[sections.recipient]?.detail || {},
   };
 
   return (
@@ -50,7 +50,7 @@ const Template1 = forwardRef(({ information, sections }, ref) => {
         {/* Recipient Details */}
         <section className={styles.recipientSection}>
           <p>
-            <strong>{info.recipient.name || "Hiring Manager"}</strong>
+            <strong>{info.recipient.hrname || "Hiring Manager"}</strong>
           </p>
           <p>{info.recipient.company || "Company Name"}</p>
           <p>{info.recipient.address || "Company Address"}</p>
@@ -59,7 +59,13 @@ const Template1 = forwardRef(({ information, sections }, ref) => {
 
         {/* Cover Letter Content */}
         <section className={styles.letterContent}>
-          <p>{info.coverLetter || "Your cover letter content goes here."}</p>
+          {info.coverLetter?.points?.length > 0 ? (
+            info.coverLetter.points.map((point, index) => (
+              <p key={index}>{point}</p>
+            ))
+          ) : (
+            <p>Your cover letter content goes here.</p>
+          )}
         </section>
 
         {/* Footer */}

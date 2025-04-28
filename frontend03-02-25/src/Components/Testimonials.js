@@ -12,7 +12,8 @@ const Testimonials = () => (
           >
             Trusted by Professionals who've worked at
           </h1>
-          <div className="slider_row mt-4">
+          <div className="slider-wrapper mt-4">
+          <div className="slider_row ">
             <img
               className="fab"
               src="https://myoutspark.com/images/amazon_logo.png"
@@ -60,6 +61,7 @@ const Testimonials = () => (
               src="https://myoutspark.com/images/naukari.png"
               alt="Naukari"
             />
+          </div>
           </div>
         </div>
       </div>
