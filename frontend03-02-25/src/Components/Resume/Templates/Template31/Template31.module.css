@@ -1,3 +1,4 @@
+
 .resumeContainer {
   max-width: 900px;
   margin: auto;
@@ -6,6 +7,9 @@
   border-radius: 8px;
   padding: 10px;
   background: rgb(255, 255, 255);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .resumeHeader {
@@ -18,93 +22,118 @@
 
 .panel {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
   width: 100%;
   padding-bottom: 0px;
 }
 
-.leftPanel {
-  flex: 1;
-}
-
-.leftPanel section {
-  background: #ffffff;
-  padding: 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.leftPanel h2 {
-  font-weight: bold;
-  font-size: 20px;
-  border-bottom: 2px solid #2a56c6;
-  padding-bottom: 5px;
-  margin-bottom: 4px;
-}
-
-.leftPanel ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.leftPanel ul li {
-  padding: 5px 0;
-  font-size: 17px;
-}
-
-.leftPanel p {
-  font-size: 17px;
-}
-/* Right Panel */
+.leftPanel,
 .rightPanel {
-  flex: 1.5;
+  flex: 1 1 45%;
+  min-width: 300px;
 }
 
+.leftPanel section,
 .rightPanel section {
   background: #ffffff;
   padding: 20px;
   margin-top: 15px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgb(0, 0, 0);
-  /* text-align: left; */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
+.leftPanel h2,
 .rightPanel h2 {
-  font-size: 20px;
   font-weight: bold;
+  font-size: 20px;
   border-bottom: 2px solid #2a56c6;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  word-break: break-word;
+}
+
+.leftPanel ul,
+.rightPanel ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.leftPanel ul li,
+.rightPanel ul li {
+  padding: 5px 0;
+  font-size: 17px;
+  word-break: break-word;
+}
+
+.leftPanel p,
+.rightPanel p {
+  font-size: 17px;
+  margin: 4px 0;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .rightPanel h3 {
   font-size: 18px;
   font-weight: bold;
   text-align: left;
-}
-
-.rightPanel ul {
-  list-style-type: square;
-  padding: 0;
-  text-align: left;
-}
-
-.rightPanel ul li {
-  padding: 5px 0;
-}
-
-.rightPanel p {
-  text-align: left;
+  word-break: break-word;
 }
 
 .date {
   color: #2a56c6;
   font-weight: bold;
   text-align: left;
+  word-break: break-word;
 }
+
 .info-list li {
   text-align: left;
   list-style-type: square;
+  word-break: break-word;
 }
+
+@media print {
+  .resumeContainer {
+    max-width: 100%;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+  }
+
+  .leftPanel,
+  .rightPanel {
+    flex: 1 1 48%;
+    padding: 5px;
+    box-shadow: none;
+  }
+
+  .leftPanel section,
+  .rightPanel section {
+    padding: 5px;
+    box-shadow: none;
+    margin-top: 5px;
+  }
+
+  .resumeHeader {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .resumeHeader h1 {
+    font-size: 16px;
+  }
+
+  .resumeHeader .summary {
+    font-size: 10px;
+  }
+} 

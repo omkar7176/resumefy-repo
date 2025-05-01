@@ -1,4 +1,3 @@
-@import "../multiPage.css"; /* Import global multipage handling */
 
 .resume {
   display: flex;
@@ -25,26 +24,21 @@
   position: relative;
 }
 
-
-/* Left Sidebar */
 .leftPanel {
-
   width: 30%;
-  left: 20px;
-  top: 20px; /* Slightly lowered for overlay effect */
   background-color: var(--theme-color);
   color: white;
   padding: 20px;
   text-align: center;
+  box-sizing: border-box;
 }
 
-/* Hexagon Shape */
 .hexagon {
   width: 100px;
-  height: 110px;
+  height: 100px;
   background-color: #ffffff;
   color: var(--theme-color);
-  clip-path: ellipse(48% 30% at 50% 50%);
+  clip-path: ellipse(50% 30% at 50% 50%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,81 +47,83 @@
   margin: auto;
 }
 
-.hexagon::before,
-.hexagon::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  border-left: 50px solid transparent;
-  border-right: 50px solid transparent;
-}
-
-.hexagon::before {
-  bottom: 100%;
-  border-bottom: 30px solid white;
-}
-
-.hexagon::after {
-  top: 100%;
-  border-top: 30px solid white;
-}
-
-.contact p{
+.contact p {
   color: #ffffff;
+  word-break: break-word;
 }
 
-/* Right Panel */
+.icon {
+  margin-bottom: 4px;
+}
+
+.section {
+  margin-top: 20px;
+  page-break-inside: avoid;
+}
+
+.sideHeader {
+  font-weight: bold;
+  font-size: 13px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.leftPanel p {
+  font-size: 11px;
+  color: white;
+  margin: 3px 0;
+}
+
+
 .rightPanel {
   width: 70%;
   padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Name Strip */
 .nameStrip {
   background-color: #d3d3d3;
   padding: 10px;
   text-align: center;
-  
 }
 
-/* Cursive Section Titles */
+.nameStrip h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 8px 0;
+}
+
 .sectionTitle {
   font-family: cursive;
-  font-size: 14px;
+  font-size: 13px;
   border-bottom: 1px solid black;
   margin-bottom: 8px;
 }
 
-.rightPanel p {
-  color: black;
+.rightPanel ul {
+  padding-left: 20px;
+  margin-top: 4px;
 }
 
-.leftPanel p {
-  color: rgb(255, 255, 255);
+.rightPanel ul li {
+  margin-bottom: 4px;
 }
 
+.projectItem, .workItem {
+  margin-bottom: 12px;
+}
 
 .justified {
   text-align: justify;
+  font-size: 11px;
 }
 
-
-
-/*page break code snippet i used to break pages equally @Nikhil*/
-
-
-/* Ensure new pages start properly */
-.page-break {
-  page-break-before: always;
-  break-before: page;
-}
-
-/* Prevent Section Splitting */
-.section {
-  page-break-inside: avoid;
-}
-
-/* Multi-Page Handling */
 
 @media print {
   @page {
@@ -148,49 +144,42 @@
     padding: 6.35mm;
   }
 
-  /* Left Panel - Keep Styling but Hide Content on New Pages */
-.leftPanel {
-  position: fixed;
-  width: 30%;
-  height: 100%;
-  background-color: var(--theme-color);
-  color: white;
-  padding: 20px;
-  text-align: center;
-  left: 0;
-  top: 0;
-}
+  .leftPanel {
+    position: fixed;
+    width: 30%;
+    height: 100%;
+    background-color: var(--theme-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    left: 0;
+    top: 0;
+  }
 
-/* Hide the left panel content on all pages except the first */
-.resume:not(:first-of-type) .leftPanel * {
-  visibility: hidden; /* This hides all content in the left panel on subsequent pages */
-}
+  .resume:not(:first-of-type) .leftPanel * {
+    visibility: hidden;
+  }
 
-/* Ensure the left panel's background is visible */
-.resume:not(:first-of-type) .leftPanel {
-  visibility: visible; /* This keeps the left panel's background visible */
-}
+  .resume:not(:first-of-type) .leftPanel {
+    visibility: visible;
+  }
 
-/* Right Panel should not overlap with the fixed left panel */
-.rightPanel {
-  width: 70%;
-  padding: 20px;
-  margin-left: 30%; /* Ensure it starts after the left panel */
-}
+  .rightPanel {
+    width: 70%;
+    padding: 20px;
+    margin-left: 30%;
+  }
 
-/* Prevent Sections from Duplicating */
-.resume:not(:first-of-type) .rightPanel {
-  display: contents; /* This ensures the right panel's content is not duplicated */
-}
+  .resume:not(:first-of-type) .rightPanel {
+    display: contents;
+  }
 
-/* Ensure new pages start properly */
-.page-break {
-  page-break-before: always;
-  break-before: page;
-}
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
 
-/* Avoid Section Splitting */
-.section {
-  page-break-inside: avoid;
-}
+  .section {
+    page-break-inside: avoid;
+  }
 }
