@@ -8,6 +8,7 @@ import Resume from "../Resume/Resume";
 import Header from "../Header/Header";
 import styles from "./Body.module.css";
 import { url } from "../../api/apiendpoint";
+// import CoverLetter from "../CoverLetter/CoverLetter";
 
 function Body() {
   const colors = ["#239ce2", "#48bb78", "#082a4d", "#a0aec0", "#ed8936"];
@@ -150,8 +151,10 @@ function Body() {
           sections={sections}
           information={resumeInformation}
           activeColor={activeColor}
-          templateId={templateId} // Pass templateId here
+          templateId={templateId}
+          className="yourMainResumeContainer" // Pass templateId here
         />
+       
       </div>
     </div>
   );

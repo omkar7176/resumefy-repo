@@ -4,8 +4,8 @@ import styles from "./Template3.module.css";
 const Template3 = forwardRef(({ information, sections }, ref) => {
   const info = {
     basicInfo: information[sections.basicInfo]?.detail || {},
-    coverLetter: information.coverLetter || "",
-    recipient: information.recipient || {}, // Recipient details
+    coverLetter: information[sections.coverLetter] || { points: [] },
+    recipient: information[sections.recipient]?.detail || {},
   };
 
   return (
@@ -42,20 +42,26 @@ const Template3 = forwardRef(({ information, sections }, ref) => {
           {/* Left Column: Recipient Details */}
           <div className={styles.leftColumn}>
             <p>
-              <strong>{info.recipient.name || "Hiring Manager"}</strong>
+              <strong>{info.recipient.hrname || "Hiring Manager"}</strong>
             </p>
             <p>{info.recipient.company || "Company Name"}</p>
             <p>{info.recipient.address || "Company Address"}</p>
             <p>{info.recipient.date || new Date().toDateString()}</p>
           </div>
-
-          {/* Right Column: Cover Letter */}
-          <div className={styles.rightColumn}>
-            <p>{info.coverLetter || "Your cover letter content goes here."}</p>
-          </div>
         </div>
 
-        {/* Right-Aligned Footer */}
+        {/* Cover Letter Content */}
+        <section className={styles.letterContent}>
+          {info.coverLetter?.points?.length > 0 ? (
+            info.coverLetter.points.map((point, index) => (
+              <p key={index}>{point}</p>
+            ))
+          ) : (
+            <p>Your cover letter content goes here.</p>
+          )}
+        </section>
+
+        {/* Footer */}
         <div className={styles.footer}>
           <p>Sincerely,</p>
           <p className={styles.signature}>

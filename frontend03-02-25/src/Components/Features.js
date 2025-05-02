@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/Features.css";
 import { Carousel } from "react-bootstrap";
-import { Swiper, SwiperSlide } from "swiper/react";
+// import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { Navigation, Pagination } from "swiper";
+// import { Navigation, Pagination } from "swiper";
 const Features = () => (
   <section className="features" id="features">
     {/* <h2>Our Features</h2> */}
@@ -316,7 +316,7 @@ const Features = () => (
           trust us. Create your best resume quickly and easily today.
         </p>
         <a
-          href="/resume-builder"
+          href="/login"
           className="button button--medium button--whiteBlue"
         >
           Build Your Resume Now

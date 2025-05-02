@@ -27,6 +27,8 @@ import Services from "./Components/FooterContent/Services";
 import FAQ from "./Components/FooterContent/FAQ";
 import ShippingGuidelines from "./Components/FooterContent/ShippingGuidelines";
 import RefundPolicy from "./Components/FooterContent/RefundPolicy";
+import BodyCv from "./Components/Body/BodyCv";
+// import BodyCv from "./Components/CoverLetter/BodyCv/BodyCv";
 function App() {
   return (
     <Router>
@@ -44,8 +46,10 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/resume" element={<Body />} />
-          {/* <Route path="/resume-cv" element={<BodyCv />} /> */}
+          <Route path="/resume" element={<Body/>} />
+      
+          <Route path="/cv" element={<BodyCv />} />
+     
           <Route path="/template" element={<TemplatePage />} />
           <Route path="/coverLetterPage" element={<CoverLetterPage />} />
           <Route
