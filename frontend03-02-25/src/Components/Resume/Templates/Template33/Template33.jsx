@@ -1,147 +1,152 @@
-import React, { useState, forwardRef } from "react";
+
+
+
+
+import React, { forwardRef } from "react";
 import styles from "./Template33.module.css";
 
-const Template33 = forwardRef((props, ref) => {
-  return (
-    <div ref={ref} className={styles.resumeContainer}>
-      <header className={styles.resumeHeader}>
-        <h1>Rachelle Beaudry</h1>
-        <h4>Site Realibility Engineer</h4>
-        <p>
-          Results-driven Accounting Executive with a proven record of optimizing
-          financial performance. Results-driven Accounting Executive with a
-          proven record of optimizing financial performance.
-        </p>
-      </header>
+const Template33 = forwardRef(({ information, sections }, ref) => {
+  const info = {
+    basicInfo: information[sections.basicInfo]?.detail || {},
+    workExp: information[sections.workExp]?.details || [],
+    education: information[sections.education]?.details || [],
+    projects: information[sections.project]?.details || [],
+    achievements: information[sections.achievement]?.points || [],
+    skills: information[sections.skills]?.points || [],
+    languages: information[sections.languages]?.points || [],
+    certifications: information[sections.certifications]?.points || [],
+    summary: information[sections.summary]?.detail || "",
+    other:
+      information[sections.other]?.points ||
+      (information[sections.other]?.detail ? [information[sections.other].detail] : []),
+  };
 
+  return (
+    <div className={styles.resumeContainer} ref={ref}>
+      <header className={styles.resumeHeader}>
+        {info.basicInfo.name && <h1>{info.basicInfo.name}</h1>}
+        {info.summary && <p className={styles.summary}>{info.summary}</p>}
+      </header>
       <div className={styles.panel}>
         <div className={styles.leftPanel}>
-          <section>
-            <h2>Contact</h2>
-            <p>123 Anywhere St., Any City</p>
-            <p>123-456-7890</p>
-            <p>
-              <a href="mailto:hello@reallygreatsite.com">
-                hello@reallygreatsite.com
-              </a>
-            </p>
-            <p>
-              <a href="http://www.reallygreatsite.com">
-                www.reallygreatsite.com
-              </a>
-            </p>
-          </section>
-          <section>
-            <h2>Skills</h2>
-            <div>
-              <h3>Technical Skills</h3>
+          {(info.basicInfo.location || info.basicInfo.phone || info.basicInfo.email || info.basicInfo.github || info.basicInfo.linkedin) && (
+            <section>
+              <h2>CONTACT</h2>
+              {info.basicInfo.location && <p>{info.basicInfo.location}</p>}
+              {info.basicInfo.phone && <p>{info.basicInfo.phone}</p>}
+              {info.basicInfo.email && (
+                <p><a href={`mailto:${info.basicInfo.email}`}>{info.basicInfo.email}</a></p>
+              )}
+              <p>
+                {info.basicInfo.github && <a href={info.basicInfo.github}>GitHub</a>}
+                {info.basicInfo.github && info.basicInfo.linkedin && " | "}
+                {info.basicInfo.linkedin && <a href={info.basicInfo.linkedin}>LinkedIn</a>}
+              </p>
+            </section>
+          )}
+
+          {info.skills.length > 0 && (
+            <section>
+              <h2>SKILLS</h2>
               <ul>
-                <li>ReactJs</li>
-                <li>TypeScript</li>
-                <li>MongoDB</li>
-                <li>JavaScript</li>
+                {info.skills.map((skill, i) => (
+                  <li key={i}>{skill}</li>
+                ))}
               </ul>
-            </div>
-          </section>
+            </section>
+          )}
 
-          <section>
-            <div>
-              <h3>Languages</h3>
-
+          {info.certifications.length > 0 && (
+            <section>
+              <h2>CERTIFICATIONS</h2>
               <ul>
-                <li>English (Fluent)</li>
-                <li>Marathi (Fluent)</li>
-                <li>Mandarin (Proficient)</li>
+                {info.certifications.map((cert, i) => (
+                  <li key={i}>{cert}</li>
+                ))}
               </ul>
-            </div>
-          </section>
+            </section>
+          )}
 
-          <section>
-            <h2>Certifications</h2>
-            <ul>
-              <li>Certified Kubernetes Administrator (CKA)</li>
-              <li>Chartered Financial Analyst (CFA)</li>
-            </ul>
-          </section>
+          {info.languages.length > 0 && (
+            <section>
+              <h2>LANGUAGES</h2>
+              <ul>
+                {info.languages.map((lang, i) => (
+                  <li key={i}>{lang}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-          <section>
-            <h2>Additional Information</h2>
-            <ul>
-              <li>
-                Served as Team Lead in the company-wide initiative for process
-                improvement.
-              </li>
-              <li>Volunteer Treasurer, Local Nonprofit Organization.</li>
-            </ul>
-          </section>
+          {info.achievements.length > 0 && (
+            <section>
+              <h2>ACHIEVEMENTS</h2>
+              <ul>
+                {info.achievements.map((ach, i) => (
+                  <li key={i}>{ach}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+
+          {info.other.length > 0 && (
+            <section>
+              <h2>OTHER</h2>
+              <ul>
+                {info.other.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          )}
         </div>
 
         <div className={styles.rightPanel}>
-          <section>
-            <h2>Work Experience</h2>
-            <div>
-              <h3>Accounting Executive, Borcelle Corporation</h3>
-              <p className={styles.date}>Jan 2023 - Present</p>
-              <ul>
-                <li>
-                  Implemented cost-control measures resulting in a 15% reduction
-                  in operational expenses.
-                </li>
-                <li>
-                  Streamlined financial reporting processes, enhancing overall
-                  efficiency by 20%.
-                </li>
-              </ul>
-            </div>
+          {info.workExp.length > 0 && (
+            <section>
+              <h2>WORK EXPERIENCE</h2>
+              {info.workExp.map((work, i) => (
+                <div key={i}>
+                  <h3>{work.title}, {work.companyName}</h3>
+                  <p className={styles.date}>{work.startDate} - {work.endDate || "Present"}</p>
+                  <ul>
+                    {work.points?.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          )}
 
-            <div>
-              <h3>Accountant, Salford & Co</h3>
-              <p className={styles.date}>Mar 2021 - Dec 2022</p>
-              <ul>
-                <li>
-                  Managed month-end close processes, reducing closing time by
-                  25%.
-                </li>
-                <li>
-                  Spearheaded automation, decreasing manual workload by 30%.
-                </li>
-              </ul>
-            </div>
-          </section>
+          {info.education.length > 0 && (
+            <section>
+              <h2>EDUCATIONAL BACKGROUND</h2>
+              {info.education.map((edu, i) => (
+                <div key={i}>
+                  <h3>{edu.title}</h3>
+                  <p className={styles.date}>{edu.startDate} - {edu.endDate || "Present"}</p>
+                  <p className={styles.college}>{edu.college}</p>
+                </div>
+              ))}
+            </section>
+          )}
 
-          <section>
-            <h2>Projects</h2>
-            <div>
-              <h3>Visualising Website Data with Apache Hadoop</h3>
-              <p className={styles.date}>Mar 2021 - Dec 2022</p>
-              <ul>
-                <li>
-                  Managed month-end close processes, reducing closing time by
-                  25%.
-                </li>
-                <li>
-                  Implemented a new financial forecasting system, improving
-                  accuracy by 18%.
-                </li>
-              </ul>
-            </div>
-          </section>
-
-          <section>
-            <h2>Educational Background</h2>
-            <div>
-              <h3>
-                Master of Business Administration (MBA), Financial Management
-              </h3>
-              <p className={styles.date}>Sep 2018 - Oct 2019</p>
-              <p>University of Finance and Management</p>
-            </div>
-            <div>
-              <h3>Bachelor of Science in Accounting</h3>
-              <p className={styles.date}>Aug 2015 - Aug 2018</p>
-              <p>City College</p>
-            </div>
-          </section>
+          {info.projects.length > 0 && (
+            <section>
+              <h2>PROJECTS</h2>
+              {info.projects.map((project, i) => (
+                <div key={i}>
+                  <h3>{project.title}</h3>
+                  <ul>
+                    {project.points?.map((point, idx) => (
+                      <li key={idx}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          )}
         </div>
       </div>
     </div>

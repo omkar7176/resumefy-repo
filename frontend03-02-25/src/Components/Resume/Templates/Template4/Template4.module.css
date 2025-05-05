@@ -1,45 +1,51 @@
-.resumeContainer {
+
+
+
+   .resumeContainer {
     display: flex;
     justify-content: center;
     padding: 20px;
     background-color: #f4f4f4;
+    overflow: hidden;
   }
   
   .resume {
     width: 210mm;
-    height: 297mm;
+    height: 297mm; /* A4 size */
     background: white;
-    padding: 30px;
+    padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: "Poppins", sans-serif;
     background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* prevent extra overflow */
   }
   
   /* Header */
   .header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
   .header h1 {
-    font-size: 2.5rem;
+    font-size: 1.8rem; /* Reduced */
     font-weight: 600;
     color: #333;
+    margin-bottom: 5px;
   }
   
   .title {
-    font-size: 1.3rem;
+    font-size: 1rem; /* Reduced */
     color: #555;
-    margin-top: -10px;
+    margin-top: -5px;
   }
   
   .contactInfo {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reduced */
     color: #666;
-    margin-top: 10px;
+    margin-top: 8px;
   }
   
   .contactInfo a {
@@ -54,17 +60,18 @@
   
   /* Sections */
   section {
-    margin-bottom: 25px;
+    margin-bottom: 18px;
   }
   
   /* Section Titles */
   .sectionTitle {
-    font-size: 1.6rem;
+    font-size: 1.2rem; /* Reduced */
     color: #333;
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-bottom: 8px;
   }
   
   .line {
@@ -75,16 +82,16 @@
   
   /* Content */
   p {
-    font-size: 1rem;
+    font-size: 0.85rem; /* Reduced */
     color: #444;
-    line-height: 1.6;
+    line-height: 1.4;
   }
   
   /* Skills */
   .skillList {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 8px;
     list-style: none;
     padding: 0;
   }
@@ -92,16 +99,16 @@
   .skillList li {
     background: #0073b1;
     color: white;
-    padding: 6px 12px;
+    padding: 5px 10px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Reduced */
   }
   
   /* Projects */
   .project h4 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #222;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
   }
   
   .project a {
@@ -121,12 +128,28 @@
   }
   
   ul {
-    padding-left: 20px;
+    padding-left: 18px;
+    margin-top: 5px;
   }
   
   ul li {
-    font-size: 1rem;
+    font-size: 0.85rem; /* Reduced */
     color: #444;
-    line-height: 1.5;
+    line-height: 1.4;
+  }
+  
+  /* Prevent page break */
+  @media print {
+    .resumeContainer {
+      padding: 0;
+    }
+    .resume {
+      box-shadow: none;
+      width: 100%;
+      height: auto; /* no overflow in printing */
+    }
+    section, ul, li, p {
+      page-break-inside: avoid; /* prevent breaking inside sections */
+    }
   }
   

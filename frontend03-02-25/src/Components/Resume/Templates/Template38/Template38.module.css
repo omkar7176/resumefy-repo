@@ -1,112 +1,130 @@
-/* Resume Container */
+
 .resumeContainer {
   display: flex;
   justify-content: center;
   padding: 20px;
   background-color: #f4f4f4;
+  font-family: "Poppins", sans-serif;
 }
 
 .resume {
   width: 210mm;
   background: white;
-  padding: 30px;
+  padding: 25px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: "Poppins", sans-serif;
 }
 
-/* Header */
 .header {
-  text-align: left;
+  text-align: center;
   margin-bottom: 20px;
 }
 
 .header h1 {
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #222;
+  margin: 0;
 }
 
 .title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #444;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #555;
   margin-top: 5px;
 }
 
 .contactInfo {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #444;
-  margin-top: 5px;
+  margin-top: 8px;
+  line-height: 1.5;
 }
 
 .contactInfo a {
   color: #0056b3;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .contactInfo a:hover {
   text-decoration: underline;
 }
 
+.line,
+.bottomLine {
+  margin: 20px 0;
+  border: none;
+  border-top: 2px solid #ccc;
+}
+
 /* Section Styling */
 section {
-  margin-top: 20px;
+  margin-top: 25px;
+  padding: 0;
+  background: none;
+  box-shadow: none;
 }
 
-h2 {
-  font-size: 1.2rem;
-  font-weight: bold;
+section h2 {
+  font-size: 1rem;
+  font-weight: 600;
   text-transform: uppercase;
   color: #222;
-  background-color: #e8e8e8;
-  padding: 8px;
-  margin: 15px 0;
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 12px;
+  margin-bottom: 14px;
+  border-radius: 6px;
+  border-bottom: 2px solid #000;
 }
 
-/* Summary */
+/* Paragraphs */
 p {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #333;
   line-height: 1.5;
+  margin-top: 6px;
 }
 
 /* Experience */
 .experienceItem {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
 }
 
 .experienceItem strong {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #222;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.experienceTitle {
+  font-weight: bold;
+  color: #000;
 }
 
 ul {
   padding-left: 20px;
-  margin-top: 5px;
+  margin: 6px 0;
 }
 
 ul li {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #444;
-  line-height: 1.5;
-}
-
-.experienceTitle {
-  color: black; /* Ensures the title is black */
-  font-weight: bold;
+  line-height: 1.4;
 }
 
 /* Education */
 .educationItem {
-  margin-bottom: 15px;
-  font-size: 1rem;
-  color: #222;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  color: #333;
 }
 
 .educationTitle {
-  color: black; /* Black color */
-  font-weight: bold; /* Bold font */
+  font-weight: bold;
+  color: #000;
 }
 
 /* Skills */
@@ -117,18 +135,19 @@ ul li {
 
 .skillList {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 8px;
   list-style: none;
   padding: 0;
+  margin-top: 8px;
 }
 
 .skillList li {
-  background: #5b4f4f;
+  background: #333;
   color: white;
-  padding: 6px 12px;
-  border-radius: 5px;
-  font-size: 0.9rem;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
   text-align: center;
 }
 
@@ -139,7 +158,7 @@ ul li {
 }
 
 .achievements li {
-  font-size: 1rem;
+  font-size: 0.9rem;
   color: #444;
   line-height: 1.5;
 }
@@ -150,22 +169,35 @@ ul li {
 }
 
 .project h4 {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   color: #222;
+  margin-bottom: 4px;
 }
 
 .project a {
   color: #0056b3;
   text-decoration: none;
+  font-size: 0.85rem;
 }
 
 .project a:hover {
   text-decoration: underline;
 }
 
-/* Bottom Line */
+/* Other / Languages */
+section ul {
+  padding-left: 20px;
+  margin-top: 4px;
+}
+
+section ul li {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* Divider */
 .bottomLine {
-  margin-top: 20px;
-  border: none;
-  border-top: 2px solid #ddd;
+  margin-top: 25px;
+  border-top: 1px solid #ccc;
 }

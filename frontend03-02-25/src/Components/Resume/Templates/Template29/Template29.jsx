@@ -1,247 +1,196 @@
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef } from "react";
 import styles from "./Template29.module.css";
 
 const Template29 = forwardRef(({ information, sections }, ref) => {
-  //   const info = {
-  //     basicInfo: information[sections.basicInfo]?.detail || {},
-  //     workExp: information[sections.workExp]?.details || [],
-  //     education: information[sections.education]?.details || [],
-  //     projects: information[sections.project]?.details || [],
-  //     achievements: information[sections.achievement]?.points || [],
-  //     skills: information[sections.skills]?.points || [],
-  //     languages: information[sections.languages]?.points || [],
-  //     summary: information[sections.summary]?.detail || "",
-  //     other: information[sections.other]?.other || "",
-  //     certifications: information[sections.certifications]?.points || [],
-  //   };
+  const info = {
+    basicInfo: information[sections.basicInfo]?.detail || {},
+    workExp: information[sections.workExp]?.details || [],
+    education: information[sections.education]?.details || [],
+    projects: information[sections.project]?.details || [],
+    achievements: information[sections.achievement]?.points || [],
+    skills: information[sections.skills]?.points || [],
+    languages: information[sections.languages]?.points || [],
+    certifications: information[sections.certifications]?.points || [],
+    summary: information[sections.summary]?.detail || "",
+    other:
+      information[sections.other]?.points ||
+      (information[sections.other]?.detail ? [information[sections.other].detail] : []),
+  };
 
-  const [info, setInfo] = useState({
-    basicInfo: {
-      name: "John Doe",
-      title: "Frontend Developer | React.js Specialist",
-      phone: "+1234567890",
-      email: "john.doe@example.com",
-      github: "https://github.com/johndoe",
-      linkedin: "https://linkedin.com/in/johndoe",
-      portfolio: "https://johndoe.dev",
-      location: "San Francisco, CA, USA",
-    },
-    workExp: [
-      {
-        title: "Senior Frontend Engineer",
-        companyName: "Tech Corp",
-        startDate: "2020-01-01",
-        endDate: "2023-01-01",
-        points: [
-          "Developed and maintained responsive React applications, improving UI performance by 30%.",
-          "Led a team of 5 developers, conducting code reviews and mentoring junior engineers.",
-          "Implemented Redux for efficient state management, reducing API calls by 40%.",
-        ],
-      },
-      {
-        title: "Frontend Developer",
-        companyName: "Web Solutions Inc.",
-        startDate: "2018-06-01",
-        endDate: "2019-12-31",
-        points: [
-          "Designed and implemented dynamic UI components using React.js and Tailwind CSS.",
-          "Worked closely with backend developers to create RESTful API integrations.",
-        ],
-      },
-    ],
-    education: [
-      {
-        title: "Bachelor's in Computer Science",
-        college: "XYZ University",
-        startDate: "2016-01-01",
-        endDate: "2020-01-01",
-        points: [
-          "Specialized in Web Development and Software Engineering.",
-          "Completed coursework in Data Structures, Algorithms, and UI/UX Design.",
-          "Led a student developer team to build an open-source project for the university.",
-        ],
-      },
-      {
-        title: "Bachelor's in Computer Science",
-        college: "XYZ University",
-        startDate: "2016-01-01",
-        endDate: "2020-01-01",
-        points: [
-          "Specialized in Web Development and Software Engineering.",
-          "Completed coursework in Data Structures, Algorithms, and UI/UX Design.",
-          "Led a student developer team to build an open-source project for the university.",
-        ],
-      },
-    ],
-    certifications: [
-      "GCP - Associate Data Practitione",
-      "AWS Cloud Practitioner",
-    ],
-    projects: [
-      {
-        title: "Portfolio Website",
-        points: [
-          "Built a personal portfolio website using React.js, Next.js, and Tailwind CSS.",
-          "Implemented animations with Framer Motion and deployed on Vercel.",
-        ],
-      },
-      {
-        title: "E-commerce Platform",
-        points: [
-          "Developed a fully responsive e-commerce website with React and Redux Toolkit.",
-          "Implemented product filtering, sorting, and cart functionality.",
-        ],
-      },
-    ],
-    achievements: [
-      "Recognized as 'Employee of the Month' at Tech Corp - March 2022.",
-      "Top 10 finalist in an international Hackathon with 500+ participants.",
-    ],
-    skills: [
-      "React.js",
-      "Next.js",
-      "JavaScript (ES6+)",
-      "TypeScript",
-      "MongoDB",
-    ],
-    languages: [
-      "English (Fluent)",
-      "Spanish (Intermediate)",
-      "Marathi (Native)",
-      "Hindi (Native)",
-    ],
-    summary: [
-      "Experienced Frontend Developer with expertise in React.js, Next.js, and UI/UX optimization.",
-      "Passionate about building high-performance web applications with clean and scalable code.",
-      "Strong problem-solving skills, team leadership experience, and a commitment to continuous learning.",
-    ],
-    other: [
-      "Served as Team Lead in the company-wide initiative for process improvement.",
-      "Volunteer Treasurer, Local Nonprofit Organization.",
-      "Received “Excellence” in Financial Management Award, Borcelle Corporation.",
-    ],
-  });
   return (
-    <div className={styles["resume-container"]} ref={ref}>
+    <div className={styles.resumeWrapper} ref={ref}>
       {/* Left Panel */}
-      {/* Name */}
-      <div className={styles["left-panel"]}>
-        <header>
+      <div className={styles.leftPanel}>
+        {/* Name */}
+        {/* {info.basicInfo?.name && (
           <h1 className={styles.name}>{info.basicInfo.name}</h1>
-          <p className={styles.summary}>{info.summary}</p>
-        </header>
+        )} */}
+        {info.basicInfo?.name && (
+  <h1 className={styles.name}>{info.basicInfo.name}</h1>
+)}
+
+{info.basicInfo?.title && (
+  <p className={styles.title}>{info.basicInfo.title}</p>
+)}
+
+
+        {/* Summary */}
+        {info.summary && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Summary</h2>
+            <p className={styles.summary}>
+              {info.summary}
+            </p>
+          </section>
+        )}
 
         {/* Work Experience */}
-        <section>
-          <h2 className={styles["section-title"]}>Work Experience</h2>
-          {info.workExp.map((work, index) => (
-            <div key={index}>
-              <h3 className={styles["job-title"]}>
-                {work.title}, {work.companyName}
-              </h3>
-              <p className={styles.date}>
-                {work.startDate} - {work.endDate || "Present"}
-              </p>
-              <ul className={styles["job-list"]}>
-                {work.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+        {info.workExp.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Work Experience</h2>
+            {info.workExp.map((work, idx) => (
+              <div key={idx} className={styles.entry}>
+                <h3 className={styles.entryTitle}>
+                  {work.title}, {work.companyName}
+                </h3>
+                <p className={styles.date}>
+                  {work.startDate
+                    ? new Date(work.startDate).toISOString().split('T')[0]
+                    : "Start"}{" "}
+                  -{" "}
+                  {work.endDate
+                    ? new Date(work.endDate).toISOString().split('T')[0]
+                    : "Present"}
+                </p>
+                {work.points?.length > 0 && (
+                  <ul className={styles.bulletList}>
+                    {work.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
 
-        {/* Educational Backgorund */}
-        <section>
-          <h2 className={styles["section-title"]}>Educational Background</h2>
-          {info.education.map((edu, index) => (
-            <div key={index}>
-              <h3 className={styles["degree-title"]}>{edu.title}</h3>
-              <p className={styles.date}>
-                {edu.startDate} - {edu.endDate || "Present"}
-              </p>
-              <p className={styles.institution}>{edu.college}</p>
-            </div>
-          ))}
-        </section>
+        {/* Education */}
+        {info.education.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Education</h2>
+            {info.education.map((edu, idx) => (
+              <div key={idx} className={styles.entry}>
+                <h3 className={styles.entryTitle}>{edu.title}</h3>
+                <p className={styles.date}>
+                  {edu.startDate
+                    ? new Date(edu.startDate).toISOString().split('T')[0]
+                    : "Start"}{" "}
+                  -{" "}
+                  {edu.endDate
+                    ? new Date(edu.endDate).toISOString().split('T')[0]
+                    : "Present"}
+                </p>
+                <p className={styles.institution}>{edu.college}</p>
+              </div>
+            ))}
+          </section>
+        )}
 
         {/* Projects */}
-        <section>
-          <h2 className={styles["section-title"]}>Projects</h2>
-          {info.projects.map((project, index) => (
-            <div key={index}>
-              <h3 className={styles["project-title"]}>{project.title}</h3>
-              <ul className={styles["point-list"]}>
-                {project.points.map((point, i) => (
-                  <li key={i}>{point}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+        {info.projects.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Projects</h2>
+            {info.projects.map((project, idx) => (
+              <div key={idx} className={styles.entry}>
+                <h3 className={styles.entryTitle}>{project.title}</h3>
+                {project.points?.length > 0 && (
+                  <ul className={styles.bulletList}>
+                    {project.points.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </section>
+        )}
+
+        {/* Additional Information (Other) */}
+        {info.other.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Other</h2>
+            <ul className={styles.bulletList}>
+              {info.other.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
+
       {/* Right Panel */}
-      {/* Contact */}
-      <div className={styles["right-panel"]}>
-        <section>
-          <h2 className={styles["section-title"]}>Contact</h2>
-          <p className={styles["contact-info"]}>{info.basicInfo.address}</p>
-          <p className={styles["contact-info"]}>{info.basicInfo.phone}</p>
-          <p className={styles["contact-info"]}>
-            <a href={`mailto:${info.basicInfo.email}`}>
-              {info.basicInfo.email}
-            </a>
-          </p>
-          <p className={styles["contact-info"]}>
-            <a href={info.basicInfo.website}>{info.basicInfo.website}</a>
-          </p>
-          <p className={styles["contact-info"]}>
-            <a href="http://www.reallygreatsite.com">www.reallygreatsite.com</a>
-          </p>
-        </section>
+      <div className={styles.rightPanel}>
+        {/* Contact */}
+        {(info.basicInfo.phone || info.basicInfo.email || info.basicInfo.portfolio ||
+          info.basicInfo.location || info.basicInfo.linkedin || info.basicInfo.github) && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Contact</h2>
+            {info.basicInfo.phone && <p className={styles.contactItem}>{info.basicInfo.phone}</p>}
+            {info.basicInfo.email && (
+              <p className={styles.contactItem}>
+                <a href={`mailto:${info.basicInfo.email}`}>{info.basicInfo.email}</a>
+              </p>
+            )}
+            {info.basicInfo.portfolio && (
+              <p className={styles.contactItem}>
+                <a href={info.basicInfo.portfolio} target="_blank" rel="noreferrer">
+                  {info.basicInfo.portfolio}
+                </a>
+              </p>
+            )}
+          </section>
+        )}
 
         {/* Skills */}
-        <section>
-          <h2 className={styles["section-title"]}>Skills</h2>
-          <ul className={styles["skill-list"]}>
-            {info.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
-        </section>
+        {info.skills.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Skills</h2>
+            <ul className={styles.bulletList}>
+              {info.skills.map((skill, idx) => (
+                <li key={idx}>{skill}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
         {/* Languages */}
-        <section>
-          <h2 className={styles["section-title"]}>Languages</h2>
-          <ul className={styles["skill-list"]}>
-            {info.languages.map((language, index) => (
-              <li key={index}>{language}</li>
-            ))}
-          </ul>
-        </section>
+        {info.languages.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Languages</h2>
+            <ul className={styles.bulletList}>
+              {info.languages.map((language, idx) => (
+                <li key={idx}>{language}</li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-        {/* Certifications */}
-        <section>
-          <h2 className={styles["section-title"]}>Certifications</h2>
-          <ul className={styles["certification-list"]}>
-            {info.certifications?.map((cert, index) => (
-              <li key={index}>{cert}</li>
-            ))}
-          </ul>
-        </section>
-
-        {/* Additional Information */}
-        <section>
-          <h2 className={styles["section-title"]}>Additional Information</h2>
-          <ul className={styles["info-list"]}>
-            {info.other.map((other, index) => (
-              <li key={index}>{other}</li>
-            ))}
-          </ul>
-        </section>
+        {/* Achievements */}
+        {info.achievements.length > 0 && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Achievements</h2>
+            <ul className={styles.bulletList}>
+              {info.achievements.map((ach, idx) => (
+                <li key={idx}>{ach}</li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </div>
   );
 });
 
 export default Template29;
+
+

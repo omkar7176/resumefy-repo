@@ -1,3 +1,5 @@
+
+
 .resumeContainer {
   max-width: 900px;
   margin: auto;
@@ -6,109 +8,132 @@
   border-radius: 8px;
   padding: 14px;
   background: #647c41;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 .resumeHeader {
-  margin-left: 42%;
-  margin-right: 2%;
-  text-align: left;
+  text-align: center;
   padding: 20px 0;
   border-bottom: 3px solid #134ee2;
   color: #000000;
 }
+
 .resumeHeader p {
   color: #ffffff;
+  word-break: break-word;
 }
 
 .panel {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   gap: 10px;
   width: 100%;
-  padding-bottom: 0px;
 }
 
-.leftPanel {
-  flex: 1;
-}
-
-.leftPanel section {
-  background: #ffffff;
-  padding: 20px;
-  margin-top: 15px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgb(0, 0, 0);
-}
-
-.leftPanel h2 {
-  font-weight: bold;
-  font-size: 20px;
-  border-bottom: 2px solid #2a56c6;
-  padding-bottom: 5px;
-  margin-bottom: 4px;
-}
-
-.leftPanel ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.leftPanel ul li {
-  padding: 5px 0;
-  font-size: 17px;
-}
-
-.leftPanel p {
-  font-size: 17px;
-}
-/* Right Panel */
+.leftPanel,
 .rightPanel {
-  flex: 1.5;
+  width: 48%;
+  box-sizing: border-box;
 }
 
+.leftPanel section,
 .rightPanel section {
   background: #ffffff;
-  padding: 20px;
+  padding: 18px;
   margin-top: 15px;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgb(0, 0, 0);
-  /* text-align: left; */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  overflow-wrap: break-word;
+  word-break: break-word;
+  page-break-inside: avoid;
 }
 
+.leftPanel h2,
 .rightPanel h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   border-bottom: 2px solid #2a56c6;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
+  padding-bottom: 4px;
+  margin-bottom: 6px;
+}
+
+ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.leftPanel ul li,
+.rightPanel ul li {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.leftPanel p,
+.rightPanel p {
+  font-size: 14px;
+  margin: 4px 0;
 }
 
 .rightPanel h3 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  text-align: left;
-}
-
-.rightPanel ul {
-  list-style-type: square;
-  padding: 0;
-  text-align: left;
-}
-
-.rightPanel ul li {
-  padding: 5px 0;
-}
-
-.rightPanel p {
-  text-align: left;
 }
 
 .date {
   color: #2a56c6;
   font-weight: bold;
-  text-align: left;
+  font-size: 13px;
+  margin-bottom: 5px;
 }
-.info-list li {
-  text-align: left;
-  list-style-type: square;
+@media print {
+  body {
+    background: #647c41 !important;
+  }
+
+  .resumeContainer {
+    background: #647c41 !important;
+    box-shadow: none;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .leftPanel,
+  .rightPanel {
+    width: 48%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .leftPanel section,
+  .rightPanel section {
+    background: #ffffff !important;
+    margin-top: 6px;
+    padding: 10px;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  .resumeHeader {
+    text-align: center;
+    border-bottom: 2px solid #2a56c6;
+  }
+
+  .resumeHeader h1 {
+    font-size: 18px;
+  }
+
+  .resumeHeader p {
+    color: #ffffff !important;
+    font-size: 11px;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
 }
