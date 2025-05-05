@@ -2,92 +2,174 @@ import React, { forwardRef } from "react";
 import styles from "./Template45.module.css";
 
 const Template45 = forwardRef(({ information, sections }, ref) => {
-  const demoData = {
-    basicInfo: {
-      name: "John Doe",
-      position: "Software Engineer",
-      email: "johndoe@example.com",
-      phone: "+1 (123) 456-7890",
-      location: "New York, USA",
-      linkedin: "https://linkedin.com/in/johndoe",
-    },
-    recipient: {
-      name: "Jane Smith",
-      position: "HR Manager",
-      company: "Tech Solutions Inc.",
-      address: "123 Business St, San Francisco, CA",
-    },
-    content:
-      "I am excited to apply for the Software Engineer position at Tech Solutions Inc. With a strong background in web development and problem-solving, I believe my skills align well with your company's needs. Over the past five years, I have successfully built and deployed multiple web applications that have significantly improved user experience and operational efficiency. My expertise in front-end and back-end technologies enables me to create seamless, high-performance applications that meet business objectives.",
-    bulletPoints: [
-      "5+ years of experience in full-stack development",
-      "Proficient in React, Node.js, and MongoDB",
-      "Strong problem-solving and teamwork skills",
-      "Experience in developing scalable applications",
-      "Passionate about writing clean and efficient code",
-    ],
-    closing:
-      "I would love the opportunity to bring my skills and passion for technology to your esteemed company. Please feel free to contact me at your earliest convenience to discuss how my background can benefit your team. Thank you for your time and consideration. I look forward to your response.",
-  };
-
   const info = {
-    basicInfo: information?.[sections?.basicInfo]?.detail || demoData.basicInfo,
-    recipient: information?.recipient || demoData.recipient,
-    content: information?.content || demoData.content,
-    bulletPoints: information?.bulletPoints || demoData.bulletPoints,
-    closing: information?.closing || demoData.closing,
+    basicInfo: information[sections.basicInfo]?.detail || {},
+    workExperience: information[sections.workExp]?.details || [],
+    education: information[sections.education]?.details || [],
+    achievements: information[sections.achievement]?.points || [],
+    skills: information[sections.skills]?.points || [],
+    projects: information[sections.project]?.details || [],
+    summary: information[sections.summary]?.detail || "",
+    languages: information[sections.languages]?.points || [],
+    other: {
+      sectionTitle: information[sections.other]?.sectionTitle || "Other", // ✅ Manual Title Input
+      detail: information[sections.other]?.detail || "", // ✅ Manual Data Input
+    }, 
   };
 
   return (
-    <div className={styles.container} ref={ref}>
-      {/* Header Section */}
-      <div className={styles.header}>
-        {/* Name & Position */}
-        <div className={styles.nameBlock}>
-          <h1 className={styles.name}>{info.basicInfo.name}</h1>
-          <p className={styles.position}>{info.basicInfo.position}</p>
-        </div>
-        {/* Contact Info */}
-        <div className={styles.contactInfo}>
-          <p>{info.basicInfo.email}</p>
-          <p>{info.basicInfo.phone}</p>
-          <p>{info.basicInfo.location}</p>
-          <p>
-            <a href={info.basicInfo.linkedin} target="_blank" rel="noreferrer">
-              LinkedIn
-            </a>
-          </p>
-        </div>
-      </div>
+    <div className={styles.resumeContainer} ref={ref}>
+      <div className={styles.resume}>
+        {/* Sidebar */}
+        <aside className={styles.sidebar}>
+          <div className={styles.profile}>
+            <h1>{info.basicInfo.name || "Your Name"}</h1>
+            <p>{info.basicInfo.title || "Your Position"}</p>
+          </div>
 
-      <hr className={styles.line} />
+          {/* Contact Info */}
+          <div className={styles.contact}>
+            {info.basicInfo.email && <p>✉️ {info.basicInfo.email}</p>}
+            {info.basicInfo.phone && <p>📞 {info.basicInfo.phone}</p>}
+            {info.basicInfo.linkedin && (
+              <p>
+                🔗{" "}
+                <a href={info.basicInfo.linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn
+                </a>
+              </p>
+            )}
+            {info.basicInfo.github && (
+              <p>
+                🐙{" "}
+                <a href={info.basicInfo.github} target="_blank" rel="noreferrer">
+                  GitHub
+                </a>
+              </p>
+            )}
+          </div>
 
-      {/* Recipient Information */}
-      <div className={styles.recipient}>
-        <p>
-          <strong>{info.recipient.name}</strong>
-        </p>
-        <p>{info.recipient.position}</p>
-        <p>{info.recipient.company}</p>
-        <p>{info.recipient.address}</p>
-      </div>
+          {/* Skills */}
+          {info.skills.length > 0 && (
+            <section className={styles.section}>
+              <h2>Skills</h2>
+              <ul className={styles.skillsList}>
+                {info.skills.map((skill, index) => (
+                  <li key={index}>{skill}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-      {/* Cover Letter Content */}
-      <div className={styles.content}>
-        <p>Dear {info.recipient.name},</p>
-        <p>{info.content}</p>
-        <ul>
-          {info.bulletPoints.map((point, index) => (
-            <li key={index}>{point}</li>
-          ))}
-        </ul>
-        <p>{info.closing}</p>
-      </div>
+          {/* Languages */}
+          {info.languages.length > 0 && (
+            <section className={styles.section}>
+              <h2>Languages</h2>
+              <ul>
+                {info.languages.map((language, index) => (
+                  <li key={index}>{language}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
-      {/* Signature */}
-      <div className={styles.signature}>
-        <p>Sincerely,</p>
-        <p>{info.basicInfo.name}</p>
+          {/* Other Section */}
+          {info.other.detail && (
+            <section className={styles.section}>
+              <h2>{info.other.sectionTitle}</h2>
+              <p>{info.other.detail}</p>
+            </section>
+          )}
+        </aside>
+
+        {/* Main Content */}
+        <main className={styles.mainContent}>
+          {/* Summary */}
+          {info.summary && (
+            <section className={styles.section}>
+              <h2>Summary</h2>
+              <p>{info.summary}</p>
+            </section>
+          )}
+
+          {/* Work Experience */}
+          {info.workExperience.length > 0 && (
+            <section className={styles.section}>
+              <h2>Experience</h2>
+              {info.workExperience.map((exp, index) => (
+                <div key={index}>
+                  <strong>{exp.title}</strong> - {exp.companyName} ({exp.startDate} - {exp.endDate})
+                  <ul>
+                    {exp.points?.map((point, i) => (
+                      <li key={i}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </section>
+          )}
+
+          {/* Education */}
+          {info.education.length > 0 && (
+            <section className={styles.section}>
+              <h2>Education</h2>
+              {info.education.map((edu, index) => (
+                <p key={index}>
+                  <strong>{edu.title}</strong> <br />
+                  {edu.college} <br /> ({edu.startDate} - {edu.endDate})
+                </p>
+              ))}
+            </section>
+          )}
+
+          {/* Projects */}
+          {info.projects.length > 0 && (
+            <section className={styles.section}>
+              <h2>Projects</h2>
+              {info.projects.map((project, index) => (
+                <div key={index} className={styles.project}>
+                  <h4>{project.title}</h4>
+                  {(project.github || project.link) && (
+                    <p>
+                      {project.github && (
+                        <>
+                          <strong>GitHub:</strong>{" "}
+                          <a href={project.github} target="_blank" rel="noreferrer">
+                            {project.github}
+                          </a>
+                        </>
+                      )}
+                      
+                      {project.github && project.link && " | "}
+                  
+                      {project.link && (
+                        <>
+                          <strong>Live Demo:</strong>{" "}
+                          <a href={project.link} target="_blank" rel="noreferrer">
+                            {project.link}
+                          </a>
+                        </>
+                      )}
+                    </p>
+                  )}
+                  {project.overview && <p>{project.overview}</p>}
+                </div>
+              ))}
+            </section>
+          )}
+
+          {/* Achievements */}
+          {info.achievements.length > 0 && (
+            <section className={styles.section}>
+              <h2>Achievements</h2>
+              <ul>
+                {info.achievements.map((achievement, index) => (
+                  <li key={index}>{achievement}</li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </main>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 20px;
@@ -7,82 +7,139 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-  }
-  
-  .container {
+}
+
+.container {
     width: 210mm;
-    height: 280mm;
+    height: 297mm;
     background: white;
-    width: 800px;
     padding: 30px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    
-  }
-  
-  /* Header */
-  .header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .nameBlock {
-    background-color: #d9a45f;
-    padding: 15px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 30%;
+    background-color: #0073b1;
     color: white;
-    display: inline-block;
-    text-align: left;
-    border-radius: 10px;
-  }
-  
-  .name {
-    font-size: 26px;
+    padding: 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile h1 {
+    font-size: 24px;
     font-weight: bold;
-  }
-  
-  .position {
-    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile p {
+    font-size: 16px;
     font-weight: 600;
-  }
-  
-  .contactInfo {
-    text-align: right;
+}
+
+.contact p {
     font-size: 14px;
-  }
-  
-  .contactInfo p {
-    margin: 3px 0;
-  }
-  
-  .contactInfo a {
+    margin: 5px 0;
+}
+
+.contact a {
+    color: white;
     text-decoration: none;
-    color: #0073b1;
     font-weight: bold;
-  }
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+/* Skills Section */
+.skillsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.skillsList li {
   
-  .line {
-    border: 1px solid #ccc;
-    margin: 15px 0;
-  }
-  
-  /* Recipient Information */
-  .recipient {
-    text-align: left;
+    color: #0073b1;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Main Content */
+.mainContent {
+    width: 70%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.section {
     margin-bottom: 20px;
-  }
-  
-  /* Cover Letter Content */
-  .content {
-    text-align: justify;
-    margin-left: 20px;
-  }
-  
-  .content ul {
+}
+
+.section h2 {
+    font-size: 20px;
+    color: #0f0f10;
+    border-bottom: 2px solid #0a0a0a;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
+.section p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.section ul {
+    list-style: disc;
     padding-left: 20px;
-  }
-  
-  .signature {
-    margin-top: 30px;
-    text-align: left;
-  }
-  
+}
+
+.section ul li {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+/* Projects */
+.project h4 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.project a {
+    color: #0073b1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}

@@ -10,6 +10,11 @@ const Template39 = forwardRef(({ information, sections }, ref) => {
     skills: information[sections.skills]?.points || [],
     projects: information[sections.project]?.details || [],
     summary: information[sections.summary]?.detail || "",
+    languages: information[sections.languages]?.points || [],
+    other: {
+      sectionTitle: information[sections.other]?.sectionTitle || "Other", // ✅ Manual Title Input
+      detail: information[sections.other]?.detail || "", // ✅ Manual Data Input
+    }, 
   };
 
   return (
@@ -22,30 +27,23 @@ const Template39 = forwardRef(({ information, sections }, ref) => {
             {info.basicInfo.title || "Your Position"}
           </p>
 
-          {/* Contact Info in One Line */}
+          {/* Contact Info */}
           <div className={styles.contactInfo}>
-            {info.basicInfo.email && <span>✉ {info.basicInfo.email} | </span>}
-            {info.basicInfo.phone && <span> {info.basicInfo.phone} | </span>}
+            {info.basicInfo.email && <span>✉️ {info.basicInfo.email} | </span>}
+            {info.basicInfo.phone && <span>📞 {info.basicInfo.phone} | </span>}
             {info.basicInfo.linkedin && (
               <span>
                 🔗{" "}
-                <a
-                  href={info.basicInfo.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={info.basicInfo.linkedin} target="_blank" rel="noreferrer">
                   LinkedIn
                 </a>{" "}
-                |
+                |{" "}
               </span>
             )}
             {info.basicInfo.github && (
               <span>
-                <a
-                  href={info.basicInfo.github}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                🐙{" "}
+                <a href={info.basicInfo.github} target="_blank" rel="noreferrer">
                   GitHub
                 </a>
               </span>
@@ -54,91 +52,134 @@ const Template39 = forwardRef(({ information, sections }, ref) => {
           <hr className={styles.line} />
         </header>
 
-        {/* Summary */}
-        <section>
-          <h2>Summary</h2>
-          <p>{info.summary}</p>
-        </section>
+        {/* Main Content */}
+        <div className={styles.mainContent}>
+          {/* Left Column */}
+          <div className={styles.leftColumn}>
+            {/* Skills */}
+            {info.skills.length > 0 && (
+              <section className={styles.skillsSection}>
+                <h2>Skills</h2>
+                <ul className={styles.skillList}>
+                  {info.skills.slice(0, 10).map((skill, index) => ( // Limit to 10 items
+                    <li key={index}>{skill}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
-        {/* Experience */}
-        <section>
-          <h2>Experience</h2>
-          {info.workExperience.map((exp, index) => (
-            <div key={index} className={styles.experienceItem}>
-              <strong className={styles.experienceTitle}>{exp.title}</strong> -{" "}
-              {exp.companyName} ({exp.startDate} - {exp.endDate})
-              <ul>
-                {exp.points?.map((point, i) => (
-                  <li key={i}>{point}</li>
+            {/* Education */}
+            {info.education.length > 0 && (
+              <section>
+                <h2>Education</h2>
+                {info.education.slice(0, 3).map((edu, index) => ( // Limit to 3 entries
+                  <p key={index}>
+                    <strong>{edu.title}</strong> <br />
+                    {edu.college} <br />
+                    ({edu.startDate} - {edu.endDate})
+                  </p>
                 ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+              </section>
+            )}
 
-        {/* Education Section */}
-        <section>
-          <h2>Education</h2>
-          {info.education.map((edu, index) => (
-            <div key={index} className={styles.educationItem}>
-              <strong className={styles.educationTitle}>{edu.title}</strong> -{" "}
-              {edu.college} ({edu.startDate} - {edu.endDate})
-            </div>
-          ))}
-        </section>
+            {/* Achievements */}
+            {info.achievements.length > 0 && (
+              <section>
+                <h2>Achievements</h2>
+                <ul>
+                  {info.achievements.slice(0, 5).map((achievement, index) => ( // Limit to 5 items
+                    <li key={index}>{achievement}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
 
-        {/* Skills */}
-        <section className={styles.skillsSection}>
-          <h2>Skills</h2>
-          <ul className={styles.skillList}>
-            {info.skills.map((skill, index) => (
-              <li key={index}>{skill}</li>
-            ))}
-          </ul>
-        </section>
+            {/* Languages */}
+            {info.languages.length > 0 && (
+              <section>
+                <h2>Languages</h2>
+                <ul>
+                  {info.languages.map((language, index) => (
+                    <li key={index}>{language}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </div>
 
-        {/* Achievements */}
-        <section>
-          <h2>Achievements</h2>
-          <ul>
-            {info.achievements.map((achievement, index) => (
-              <li key={index}>{achievement}</li>
-            ))}
-          </ul>
-        </section>
+          {/* Right Column */}
+          <div className={styles.rightColumn}>
+            {/* Summary */}
+            {info.summary && (
+              <section  className={styles.summarySection}>
+                <h2>Summary</h2>
+                <p>{info.summary}</p>
+              </section>
+            )}
 
-        {/* Projects */}
-        <section>
-          <h2>Projects</h2>
-          {info.projects.map((project, index) => (
-            <div key={index} className={styles.project}>
-              <h4>{project.title}</h4>
-              {project.github && (
-                <p>
-                  <strong>GitHub:</strong>{" "}
-                  <a href={project.github} target="_blank" rel="noreferrer">
-                    {project.github}
-                  </a>
-                </p>
-              )}
-              {project.link && (
-                <p>
-                  <strong>Live Demo:</strong>{" "}
-                  <a href={project.link} target="_blank" rel="noreferrer">
-                    {project.link}
-                  </a>
-                </p>
-              )}
-              <ul>
-                {project.points?.map((point, i) => (
-                  <li key={i}>{point}</li>
+            {/* Experience */}
+            {info.workExperience.length > 0 && (
+              <section>
+                <h2>Experience</h2>
+                {info.workExperience.slice(0, 3).map((exp, index) => ( // Limit to 3 entries
+                  <div key={index}>
+                    <strong>{exp.title}</strong> - {exp.companyName} (
+                    {exp.startDate} - {exp.endDate})
+                    <ul>
+                      {exp.points?.slice(0, 3).map((point, i) => ( // Limit to 3 points per entry
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
                 ))}
-              </ul>
-            </div>
-          ))}
-        </section>
+              </section>
+            )}
 
-        {/* Bottom Line */}
+            {/* Projects */}
+            {info.projects.length > 0 && (
+              <section className={styles.section}>
+                <h2>Projects</h2>
+                {info.projects.slice(0, 2).map((project, index) => ( // Limit to 2 projects
+                  <div key={index} className={styles.project}>
+                    <h4>{project.title}</h4>
+                    {project.github && (
+                      <p>
+                        <strong>GitHub:</strong>{" "}
+                        <a href={project.github} target="_blank" rel="noreferrer">
+                          {project.github}
+                        </a>
+                      </p>
+                    )}
+                    {project.link && (
+                      <p>
+                        <strong>Live Demo:</strong>{" "}
+                        <a href={project.link} target="_blank" rel="noreferrer">
+                          {project.link}
+                        </a>
+                      </p>
+                    )}
+                    <p>{project.overview}</p>
+                    <ul>
+                      {project.points?.slice(0, 3).map((point, i) => ( // Limit to 3 points per project
+                        <li key={i}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </section>
+            )}
+
+            {/* Other Section */}
+                      {info.other.detail && (
+                        <section className={styles.section}>
+                          <h2>{info.other.sectionTitle}</h2>
+                          <p>{info.other.detail}</p>
+                        </section>
+                      )}
+          </div>
+        </div>
+
+        {/* Footer Line */}
         <hr className={styles.bottomLine} />
       </div>
     </div>

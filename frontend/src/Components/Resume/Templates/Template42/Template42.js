@@ -66,74 +66,100 @@ const Template42 = forwardRef(({ information, sections }, ref) => {
           {/* Left Column */}
           <div className={styles.leftColumn}>
             <section className={styles.skillsSection}>
-              <h2>Skills</h2>
-              <ul className={styles.skillList}>
-                {info.skills.map((skill, index) => (
-                  <li key={index}>{skill}</li>
-                ))}
-              </ul>
+              {info.skills.length > 0 && (
+                <>
+                  <h2>Skills</h2>
+                  <ul className={styles.skillList}>
+                    {info.skills.map((skill, index) => (
+                      <li key={index}>{skill}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </section>
 
             <section className={styles.education}>
-              <h2>Education</h2>
-              {info.education.map((edu, index) => (
-                <p key={index}>
-                  <strong>{edu.title}</strong> <br />
-                  {edu.college} <br /> ({edu.startDate} - {edu.endDate})
-                </p>
-              ))}
+              {info.education.length > 0 && (
+                <>
+                  <h2>Education</h2>
+                  {info.education.map((edu, index) => (
+                    <p key={index}>
+                      <strong>{edu.title}</strong> <br />
+                      {edu.college} <br /> ({edu.startDate} - {edu.endDate})
+                    </p>
+                  ))}
+                </>
+              )}
             </section>
 
             <section className={styles.achievements}>
-              <h2>Achievements</h2>
-              <ul>
-                {info.achievements.map((achievement, index) => (
-                  <li key={index}>{achievement}</li>
-                ))}
-              </ul>
+              {info.achievements.length > 0 && (
+                <>
+                  <h2>Achievements</h2>
+                  <ul>
+                    {info.achievements.map((achievement, index) => (
+                      <li key={index}>{achievement}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </section>
 
             {/* ✅ New Languages Section */}
             <section>
-              <h2>Languages</h2>
-              <ul>
-                {info.languages.map((language, index) => (
-                  <li key={index}>{language}</li>
-                ))}
-              </ul>
+              {info.languages.length > 0 && (
+                <>
+                  <h2>Languages</h2>
+                  <ul>
+                    {info.languages.map((language, index) => (
+                      <li key={index}>{language}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </section>
           </div>
 
           {/* Right Column */}
           <div className={styles.rightColumn}>
             <section>
-              <h2>Summary</h2>
-              <p>{info.summary}</p>
+              {info.summary && (
+                <>
+                  <h2>Summary</h2>
+                  <p>{info.summary}</p>
+                </>
+              )}
             </section>
 
             <section>
-              <h2>Experience</h2>
-              {info.workExperience.map((exp, index) => (
-                <div key={index}>
-                  <strong>{exp.title}</strong> - {exp.companyName} (
-                  {exp.startDate} - {exp.endDate})
-                  <ul>
-                    {exp.points?.map((point, i) => (
-                      <li key={i}>{point}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+              {info.workExperience.length > 0 && (
+                <>
+                  <h2>Experience</h2>
+                  {info.workExperience.map((exp, index) => (
+                    <div key={index}>
+                      <strong>{exp.title}</strong> - {exp.companyName} (
+                      {exp.startDate} - {exp.endDate})
+                      <ul>
+                        {exp.points?.map((point, i) => (
+                          <li key={i}>{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </>
+              )}
             </section>
 
             {/* Projects Section */}
             <section className={styles.section}>
-              <h2>Projects</h2>
-              {info.projects.map((project, index) => (
-                <div key={index} className={styles.project}>
-                  <h4>{project.title}</h4>
+              {info.projects.length > 0 && (
+                <>
+                  <h2>Projects</h2>
+                  {info.projects.map((project, index) => (
+                    <div key={index} className={styles.project}>
+                      <h4>{project.title}</h4>
 
-                  {(project.github || project.link) && (
+                      {(project.github || project.link) && (
   <p>
     {project.github && (
       <>
@@ -165,14 +191,20 @@ const Template42 = forwardRef(({ information, sections }, ref) => {
               
 
 
-                </div>
-              ))}
+                    </div>
+                  ))}
+                </>
+              )}
             </section>
 
             {/* ✅ New Other Section */}
             <section>
-              <h2>{info.other.sectionTitle}</h2>
-              <p>{info.other.detail ? info.other.detail : ""}</p>
+              {info.other.detail && (
+                <>
+                  <h2>{info.other.sectionTitle}</h2>
+                  <p>{info.other.detail}</p>
+                </>
+              )}
             </section>
           </div>
         </div>

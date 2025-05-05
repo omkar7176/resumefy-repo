@@ -54,12 +54,12 @@ section {
   margin-top: 20px;
 }
 
-h2 {
+section h2 {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
   color: #222;
-  background-color: #e8e8e8;
+  
   padding: 8px;
   margin: 15px 0;
 }
